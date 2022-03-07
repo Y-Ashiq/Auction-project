@@ -1,27 +1,131 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&display=swap');
-body {
-  background-color:#131722;
-  color: aliceblue;
-  font-family: 'Montserrat Alternates', sans-serif;
-}
-.secondFontColor{
-  color:#949cb0 ;
+*{
+    font-family: Poppins;
+    font-style: sans-serif;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 60px;
+    color: #000000;
+    
 
 }
-.brdr{
-  background-color:#a8a8a83d ;
-  height: 2px;
-  margin: 5px o;
+
+
+.home-background {
+
+    background: linear-gradient(0.38deg, #FFFFFF 0.32%, #1B6A94 98.19%);
+
 }
- .item{
-   position: relative;
+
+/* first section of most bidding items */
+.most-bidding-section {
+
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    grid-template-columns: repeat(3, 500px);
+
+}
+
+/* big card that contain the preview of bidding item */
+.Bidding-Card {
+
+    display: grid;
+    background-color: white;
+    width: 379.84px;
+    height: 591.32px;
+    background: #FCFCFC;
+    border: 1px solid #B1A9A3;
+    box-sizing: border-box;
+    border-radius: 16px;
+    justify-items: center;
+    filter: drop-shadow(6px 8px 4px rgba(0, 0, 0, 0.47));
+}
+
+/* gridding the items inside the card  */
+.biddng-price {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    column-gap: 7px;
+}
+
+.biddng-price div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
 
 
- }
- .vote{
-   position: absolute;
-   top: 0;
-   right: 0;
-   padding: 10px;
-   background-color: aqua;
- }
+}
+
+.bttn {
+
+    width: 272px;
+    height: 61px;
+    background: #EB8032;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 142.5px;
+    border: none;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15pt;
+    color: white;
+}
+
+/* categories section  */
+
+.cat-section{
+
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    grid-template-columns: repeat(3, 400px);
+    row-gap: 3em;
+    
+
+}
+
+.cat-cards {
+    width: 340px;
+    height: 275px;
+  
+
+    background: white;
+    border: 1px solid #B1A9A3;
+    border-radius: 16px;
+
+}
+
+
+.cat-cards img{
+    width: 339px;
+    border-radius: 16px 16px 0px 0px;
+
+
+}
+
+
+
+
+@media screen and (max-width :1200px) {
+    .most-bidding-section {
+
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 3em;
+
+    }
+
+
+    .cat-section{
+
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 3em;
+        
+    
+    }
+
+
+}
