@@ -11,8 +11,13 @@
 
 
 .home-background {
+                                        /* #1868B7
+                                        #2081E2 
+                                        #1B6A94
+                                        #0d7db1
+                                        */
 
-    background: linear-gradient(0.38deg, #FFFFFF 0.32%, #1B6A94 98.19%);
+    background: linear-gradient(0.38deg, #FFFFFF 0.32%, #0d7db1 95.19%);
 
 }
 
@@ -38,21 +43,25 @@
     box-sizing: border-box;
     border-radius: 16px;
     justify-items: center;
-    filter: drop-shadow(6px 8px 4px rgba(0, 0, 0, 0.47));
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+
+    
 }
+
 
 /* gridding the items inside the card  */
 .biddng-price {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
-    column-gap: 7px;
+    column-gap: 10px;
 }
 
 .biddng-price div {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: auto auto;
     justify-items: center;
+    column-gap: 4px;
 
 
 }
@@ -106,6 +115,18 @@
 }
 
 
+.footer{
+
+    height: 100px;
+    background-color: #0d7db1;
+
+    /* #1868B7
+    #2081E2 
+    #1B6A94
+    #2081e2*/
+}
+
+
 
 
 @media screen and (max-width :1200px) {
@@ -117,6 +138,19 @@
 
     }
 
+    .Bidding-Card{
+
+        height: 30em;
+    }
+    
+    .bttn{
+        font-size: 12pt;
+        width: 60%;
+        height: 65%;
+        margin-bottom: 1em;
+    }
+
+  
 
     .cat-section{
 

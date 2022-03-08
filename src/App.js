@@ -6,6 +6,7 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import Bid from './components/Bid/Bid';
+import Footer from './Footer/Footer';
 
 class App extends Component {
     render() {
@@ -20,7 +21,10 @@ class App extends Component {
                     < Route path="/Bid" component={Bid} />
                      <Redirect exact from="/" to="/home" />
                     < Route path="*" component={NotFound} />
-     </Switch>
+                 </Switch>
+
+                 <Footer />
+
                     </>
            
       );
