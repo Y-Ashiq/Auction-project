@@ -6,6 +6,7 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import Bid from './components/Bid/Bid';
+
 import Footer from './components/Footer/Footer';
 
 class App extends Component {
