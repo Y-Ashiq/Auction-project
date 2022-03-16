@@ -1,0 +1,18 @@
+.cat-cards {
+    width: 340px;
+    height: 275px;
+
+
+    background: white;
+    border: 1px solid #B1A9A3;
+    border-radius: 16px;
+
+}
+
+
+.cat-cards img {
+    width: 339px;
+    border-radius: 16px 16px 0px 0px;
+
+
+}

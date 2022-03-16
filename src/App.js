@@ -13,6 +13,7 @@ class App extends Component {
     render() {
         return (
              <>
+            
                 < Switch >
 
                     < Route path="/home" component={Home}/> 
@@ -22,6 +23,8 @@ class App extends Component {
                      <Redirect exact from="/" to="/home" />
                     < Route path="*" component={NotFound} />
                  </Switch>
+
+                 <Footer/>
 
 
                     </>

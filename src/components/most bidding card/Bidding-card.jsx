@@ -1,3 +1,4 @@
+import './Bidding-card.css'
 const MostBidding = () => {
     return ( 
 

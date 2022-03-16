@@ -1,3 +1,4 @@
+import'./cat-card.css';
 const CatCard = () => {
     return ( 
         <div>

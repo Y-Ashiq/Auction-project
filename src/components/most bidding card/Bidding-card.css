@@ -1,0 +1,75 @@
+/* big card that contain the preview of bidding item */
+.Bidding-Card {
+
+    display: grid;
+    background-color: white;
+    width: 379.84px;
+    height: 591.32px;
+    background: #FCFCFC;
+    border: 1px solid #B1A9A3;
+    box-sizing: border-box;
+    border-radius: 16px;
+    justify-items: center;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+
+
+}
+/* gridding the items inside the card  */
+.biddng-price {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    column-gap: 10px;
+}
+
+.biddng-price div {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-items: center;
+    column-gap: 4px;
+
+
+}
+.bttn {
+
+    width: 272px;
+    height: 61px;
+    background: #EB8032;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 142.5px;
+    border: none;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15pt;
+    color: white;
+}
+
+
+@media screen and (max-width :1200px) {
+    .most-bidding-section {
+
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 3em;
+
+    }
+
+    .Bidding-Card {
+
+        height: 30em;
+    }
+
+    .bttn {
+        font-size: 12pt;
+        width: 60%;
+        height: 65%;
+        margin-bottom: 1em;
+    }
+
+
+
+
+
+}
