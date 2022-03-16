@@ -13,7 +13,6 @@ class App extends Component {
     render() {
         return (
              <>
-                < Navbar/>
                 < Switch >
 
                     < Route path="/home" component={Home}/> 
@@ -24,7 +23,6 @@ class App extends Component {
                     < Route path="*" component={NotFound} />
                  </Switch>
 
-                 <Footer />
 
                     </>
            
