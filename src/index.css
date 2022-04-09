@@ -1,19 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
 
 * {
 
     font-family: 'Poppins', sans-serif;
-    font-style: sans-serif;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 60px;
-    color: #000000;
+   
+    
 
 
 }
+.bolding{
 
+    font-weight: bold;
+    font-size: 20pt;
+}
+label{
 
-@media screen and (max-width :1200px) {
+    font-weight: bold;
+
+}
+
+/* @media screen and (max-width :1200px) {
     .most-bidding-section {
 
         display: grid;
@@ -24,13 +30,13 @@
 
     .Bidding-Card {
 
-        height: 30em;
+        height: 33em;
     }
 
-    .bttn {
+    .card-button {
         font-size: 12pt;
         width: 60%;
-        height: 65%;
+      
         margin-bottom: 1em;
     }
 
@@ -46,4 +52,4 @@
     }
 
 
-}
+} */

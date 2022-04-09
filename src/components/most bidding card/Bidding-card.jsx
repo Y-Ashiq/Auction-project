@@ -3,7 +3,7 @@ const MostBidding = () => {
     return ( 
 
         <div>
-            <div className="Bidding-Card">
+            {/* <div className="Bidding-Card">
             <div className="bidding-img">
               <img style={{borderRadius: '16px 16px 0px 0px'}} src="imgs\img.jpg" alt="watch" />
             </div>
@@ -21,7 +21,7 @@ const MostBidding = () => {
               </div>
             </div>
             <button className="bttn"> submit a bid</button>
-          </div>
+          </div> */}
         </div>
      );
 }

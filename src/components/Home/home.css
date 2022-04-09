@@ -1,26 +1,26 @@
-.home-background {
+/* .home-background { */
     /* #1868B7
                                         #2081E2 
                                         #1B6A94
                                         #0d7db1
                                         */
-    padding-top: 9em;
+    /* padding-top: 9em;
 
-    background: linear-gradient(0.38deg, #FFFFFF 0.32%, #0d7db1 95.19%);
+    background: linear-gradient(0.38deg, #FFFFFF 0.32%, #2081E2 95.19%);
 
-}
+} */
 /* first section of most bidding items */
-.most-bidding-section {
+/* .most-bidding-section {
 
     display: grid;
     justify-content: center;
     justify-items: center;
     grid-template-columns: repeat(3, 500px);
 
-}
+} */
 
 /* categories section  */
-
+/* 
 .cat-section {
 
     display: grid;
@@ -31,19 +31,4 @@
 
 
 }
-
-@media screen and (max-width :1200px) {
-
-
-
-    .cat-section {
-
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        row-gap: 3em;
-
-
-    }
-
-
-}
+ */

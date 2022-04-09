@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MostBidding from '../most bidding card/Bidding-card';
 import CatCard from '../categories card/Cat-card';
-import Navbar from '../Navbar/Navbar';
+// import Navbar from '../Navbar/Navbar';
 import './home.css'
 
 
@@ -10,7 +10,9 @@ const Home = () => {
 
     <>
 
-    <Navbar/>
+    home
+
+{/*     
       <section className="home-background" >
          
 
@@ -18,15 +20,15 @@ const Home = () => {
         <div className="container ">
           <div className=" row  ">
             <div className="col-xl-7  ">
-              <p style={{ fontSize: '30pt', color: 'white' }}>Welcome to our online auction website ,are you ready for
+              <p style={{ fontSize: '30pt', color: 'black' }}>Welcome to our online auction website ,are you ready for
                 your
                 next deal!</p>
             </div>
             <div className="col-xl-5">
               <div className="card" style={{ width: '25rem' }}>
-                <img src="imgs\slaves.jpeg" className="card-img-top" alt="..." />
+                <img src="imgs\watch.jpg" className="card-img-top" alt="..." />
                 <div className="card-body">
-                  <p className="card-text">slaves for sale!.</p>
+                  <p className="card-text">wow!</p>
                 </div>
               </div>
             </div>
@@ -72,7 +74,7 @@ const Home = () => {
 
           </div>
         </div>
-      </section>
+      </section> */}
 
     </>
 
