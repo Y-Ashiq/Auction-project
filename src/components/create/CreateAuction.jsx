@@ -42,12 +42,25 @@ const CreateAuction = () => {
     }
 
     function Status() {
-        if (auctionImage.length <= 5) {
+        
+        if (auctionImage.length < 5) {
 
-            return (<p> you must upload 5 image </p>);
-        } else {
+            return (
+                <div>
+                      <p> upload at least 5 images </p>
+                      <p> {auctionImage.length} images uploaded</p>
+                </div>
+           
+            
+            );
+        } else{
+            return(
+                <div>
+                <p> {auctionImage.length} images uploaded</p>
+          </div>
+            )
 
-            return (<p> {auctionImage.length} images uploaded</p>);
+
         }
     }
 
@@ -112,7 +125,7 @@ const CreateAuction = () => {
                 <input className="auction-input" onChange={(e) => getFormData(e)} type="text" name="auctionID" id="" />
 
                 <label className="form-label" for="firstclassName">description</label>
-                <textarea onChange={(e) => getFormData(e)} type="text" name="description" id="" rows="4" cols="50">
+                <textarea onChange={(e) => getFormData(e)} type="text" name="description" style={{marginBottom:'1em'}} id="" rows="4" cols="50">
 
                 </textarea>
 
@@ -140,10 +153,13 @@ const CreateAuction = () => {
                 <input type="file" name="auctionImage" id="file" className="auction-input" onChange={(e) => imgFormData(e)} multiple />
                 <Status />
 
+                
+
                 <div style={{color: 'red'}}> {errHandler}</div>
 
 
-                <button className="auction-button" onClick={createauc}>submit</button>
+
+                <button className="auction-button" onClick={createauc}>upload</button>
 
 
             </div>
