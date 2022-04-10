@@ -19,6 +19,16 @@ label{
 
 }
 
+.form-colors{
+
+    background-color: #ff9d5c;
+    width: 200px;
+}
+.form-side{
+
+    background-color: #2081E2;
+     border-radius: 15px;
+}
 /* @media screen and (max-width :1200px) {
     .most-bidding-section {
 

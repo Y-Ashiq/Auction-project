@@ -2,7 +2,7 @@
     display: grid;
     justify-content: center;
     justify-items: center;
-    line-height: 47px;
+    line-height: 37px;
 
 
 
@@ -10,14 +10,10 @@
 
 .auction-input{
     width: 70%;
-    height: 100%;
-    outline: none;
-    padding: 15px;
+    padding: 7px 0 7px 7px;
     font-size: 18px;
-    background: none;
-    border-radius: 27px;
-    border: 1px solid #bfbfbf;
-    border-bottom-width: 2px;
+    border-radius: 20px;
+    border: 0.5px solid #bfbfbf;
     transition: all 0.2s ease;
   }
 
@@ -27,6 +23,7 @@
     justify-content: center;
     justify-items: center;
     grid-template-columns: repeat(1, 1fr);
+    padding-top: 1em;
 
     width: 38em;
     background: #fff;
@@ -49,7 +46,8 @@ select{
 }
 .auction-button {
     margin: 1em;
-    width: 272px;
+    width: 200px;
+    height: 48px;
     background: #f8883d;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
     border-radius: 142.5px;
