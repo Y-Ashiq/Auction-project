@@ -10,17 +10,17 @@
 
 } */
 /* first section of most bidding items */
-/* .most-bidding-section {
+.most-bidding-section {
 
     display: grid;
     justify-content: center;
     justify-items: center;
-    grid-template-columns: repeat(3, 500px);
+    grid-template-columns: repeat(3, 430px);
 
-} */
+}
 
 /* categories section  */
-/* 
+
 .cat-section {
 
     display: grid;
@@ -31,4 +31,4 @@
 
 
 }
- */
+

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Home from './components/Home/Home';
-// import Navbar from './components/Navbar/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import NotFound from './components/NotFound/NotFound';
 import { Redirect, Route, Switch } from "react-router-dom";
 import Register from './components/Register/Register';
@@ -14,6 +14,8 @@ class App extends Component {
     render() {
         return (
              <>
+
+             <Navbar/>
              
                 < Switch >
 

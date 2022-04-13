@@ -10,9 +10,9 @@ const Home = () => {
 
     <>
 
-    home
+    
 
-{/*     
+    
       <section className="home-background" >
          
 
@@ -74,7 +74,7 @@ const Home = () => {
 
           </div>
         </div>
-      </section> */}
+      </section>
 
     </>
 
