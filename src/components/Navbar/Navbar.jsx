@@ -25,7 +25,7 @@ const Navbar = () => {
         <div>
             <nav className="navbar navbar-expand-lg  navbar-light ">
                 <div className="container-fluid">
-                    <a className="navbar-brand bolding" >Auction</a>
+                    <a className="navbar-brand bolding me-5" >Auction</a>
 
                     <button className="navbar-toggler" type="button" data-mdb-toggle="collapse"
                         data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -36,32 +36,36 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
 
-                        <form className="d-flex align-items-center w-100 form-search">
-                            <div className="input-group">
-
-                                <input type="search" className="form-control" placeholder="Search" aria-label="Search" />
-                            </div>
-                            <a  className="text-dark"><i className="fas fa-search ps-3"></i></a>
+                        <form class="d-flex me-auto w-100">
+                            <input class="form-control me-2" type="search" placeholder="Search items , categories" aria-label="Search" />
+                            
                         </form>
 
-                        <ul className="navbar-nav ms-3 ">
+                        <ul className="navbar-nav align-content-center ms-5">
 
                             <li className="nav-item">
 
-                                <a className="nav-link d-flex align-items-center me-3 bolding2" >
+                                <a className="nav-link d-flex  me-3 " >
                                     Home
                                 </a>
                             </li>
-                            <li className="nav-item">
+                            
+                            <li className="nav-item ">
 
-                                <a className="nav-link d-flex align-items-center me-3 bolding2" >
+                                <a className="nav-link d-flex  me-3 " >
                                     Categories
                                 </a>
                             </li>
                             <li className="nav-item">
 
-                                <a className="nav-link d-flex align-items-center me-3 bolding2" >
+                                <a className="nav-link d-flex  me-3 " >
                                     About
+                                </a>
+                            </li>
+                            <li className="nav-item">
+
+                                <a className="nav-link d-flex  me-3 " >
+                                    Contact 
                                 </a>
                             </li>
 

@@ -97,12 +97,12 @@ export default class Register extends Component {
 
                                                     </div>
                                                 </div>
-                                                <div className="form-outline  mb-4">
+                                                <div className=" mb-4">
 
                                                     <input onChange={this.getFormData} type="email" name="email" className="form-control rounded-pill" placeholder="Email" />
 
                                                 </div>
-                                                <div className="form-outline mb-4 ">
+                                                <div className="mb-4 ">
 
                                                     <input onChange={this.getFormData} type="tel" name='phoneNumber' id="form3Example3" className=" form-control rounded-pill" placeholder="phone number" />
 
@@ -111,7 +111,7 @@ export default class Register extends Component {
 
 
 
-                                                <div className="form-outline mb-4">
+                                                <div className="mb-4">
 
                                                     <input onChange={this.getFormData} type="password" name='password' id="form2Example22" className=" form-control rounded-pill" placeholder="Password" />
 
@@ -133,8 +133,7 @@ export default class Register extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="col-lg-6 d-flex align-items-center gradient-custom-2 form-side"
-                                    >
+                                    <div className="col-lg-6 d-flex align-items-center gradient-custom-2 form-side">
                                         <div className="text-white px-3 py-4 p-md-5 mx-md-4">
                                             <h4 className="mb-4 bolding">we offer the best for you</h4>
                                             <p className="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
