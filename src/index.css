@@ -8,10 +8,15 @@
 
 
 }
+
 .bolding{
 
     font-weight: bold;
-    font-size: 20pt;
+    font-size: 18pt;
+}
+.bolding2{
+
+    font-weight: bold;
 }
 label{
 
