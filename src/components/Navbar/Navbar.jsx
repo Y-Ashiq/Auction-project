@@ -23,7 +23,7 @@ const Navbar = () => {
 
 
         <div>
-            <nav className="navbar navbar-expand-lg  navbar-light ">
+            <nav className="navbar navbar-expand-lg  navbar-light bg-white fixed-top ">
                 <div className="container-fluid">
                     <a className="navbar-brand bolding me-5" >Auction</a>
 

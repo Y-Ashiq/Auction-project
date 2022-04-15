@@ -59,7 +59,6 @@ class Login extends Component {
 
 
         <section className=" m-5" >
-          <div >
             <div className="row d-flex justify-content-center align-items-center m-5 py-5 ">
               <div className="col-xl-10 ">
                 <div className=" card shadow text-black " style={{ borderRadius: '15px' }}>
@@ -130,7 +129,6 @@ class Login extends Component {
                 </div>
               </div>
             </div>
-          </div>
         </section>
 
       </>

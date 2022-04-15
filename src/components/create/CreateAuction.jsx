@@ -114,7 +114,7 @@ const CreateAuction = () => {
 
     return (
 
-        <div className="wraper">
+        <div className="wraper m-5 ">
 
             <div className="content" style={{ marginTop: '4em', marginBottom: '4em' }}>
 
