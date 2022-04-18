@@ -17,10 +17,9 @@
 /* gridding the items inside the card  */
 .biddng-price {
     display: grid;
-    grid-template-columns: repeat(2, 160px);
+    grid-template-columns: auto;
     justify-items: center;
     align-items: center;
-    row-gap: 4px;
     border-top: 2px dotted #deddf5;
     border-bottom: 2px dotted #deddf5;
 

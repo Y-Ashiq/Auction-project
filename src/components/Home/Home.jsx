@@ -13,13 +13,14 @@ const Home = () => {
     
 
     
-      <section className="home-background" >
+      <section className="home-background " >
          
 
 
-        <div className="container ">
-          <div className=" row  ">
-            <div className="col-xl-7  ">
+        <div >
+            <img className='img-fluid my-5' style={{width:'100%'}}  src="imgs/auc_auto_x2.png" alt="" />
+
+            {/* <div className="col-xl-7  ">
               <p style={{ fontSize: '30pt', color: 'black' }}>Welcome to our online auction website ,are you ready for
                 your
                 next deal!</p>
@@ -31,8 +32,7 @@ const Home = () => {
                   <p className="card-text">wow!</p>
                 </div>
               </div>
-            </div>
-          </div>
+            </div> */}
         </div>
 
 
