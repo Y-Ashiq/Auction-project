@@ -24,7 +24,7 @@ const Navbar = () => {
 
         <div>
             <nav className="navbar navbar-expand-lg  navbar-light bg-white fixed-top ">
-                <div className="container-fluid" >
+                <div className="container-fluid">
                     <a className="navbar-brand bolding me-5" >Auction</a>
 
                     <button className="navbar-toggler" type="button" data-mdb-toggle="collapse"

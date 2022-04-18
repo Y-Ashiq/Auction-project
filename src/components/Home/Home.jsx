@@ -13,7 +13,7 @@ const Home = () => {
     
 
     
-      <section className="home-background " >
+      <section className="home-background"  >
          
 
 
