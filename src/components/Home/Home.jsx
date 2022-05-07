@@ -43,7 +43,7 @@ const Home = () => {
       <section>
 
         <div>
-          <h2 style={{ textAlign: 'center', marginBottom: '2em' , marginTop:'2em'}}>Most Bidding</h2>
+          <h2 style={{ textAlign: 'center', marginBottom: '2em' }}>Most Bidding</h2>
           <div className="most-bidding-section">
 
             <MostBidding />

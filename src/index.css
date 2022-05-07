@@ -36,7 +36,7 @@ label{
 }
 
 
-/* @media screen and (max-width :1200px) {
+@media screen and (max-width :1200px) {
     .most-bidding-section {
 
         display: grid;
@@ -67,6 +67,63 @@ label{
 
 
     }
+  
+
+}
+
+@media screen and (max-width :1500px) {
+
+    .biid{
+
+        margin-top: 5em;
+        display: grid;
+        grid-template-columns: repeat(3,auto);
+        column-gap: 3em;
+        justify-items: center;
+        transition:  1s ;
+    
+    
+    }
 
 
-} */
+
+
+
+}
+
+
+
+
+
+@media screen and (max-width :850px) {
+    .biid{
+
+        margin-top: 5em;
+        display: grid;
+        grid-template-columns: repeat(2,auto);
+        column-gap: 3em;
+        justify-items: center;
+        transition:  1s ;
+    
+    
+    }
+
+
+
+}
+@media screen and (max-width :750px) {
+    .biid{
+
+        margin-top: 5em;
+        display: grid;
+        grid-template-columns: repeat(1,auto);
+        column-gap: 3em;
+        justify-items: center;
+        transition:  1s ;
+    
+    
+    }
+
+
+
+}

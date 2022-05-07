@@ -1,0 +1,45 @@
+.BigCard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.viewItemContainer {
+    /* display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 20px; */
+
+    border: 0.5px solid #bfbfbf;
+    width: 90%;
+
+    padding: 3em 2em 3em 2em;
+    border-radius: 13px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.139);
+
+
+}
+
+.bid-input{
+    width: 70%;
+    height: 48px;
+    border-radius: 142.5px;
+    border: 0.5px solid #bfbfbf;
+    outline: none;
+    padding-left: 10px;
+    transition: all 0.2s ease;
+  }
+  .bid-button {
+    width: 200px;
+    height: 48px;
+    background: #f8883d;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 142.5px;
+    border: none;
+    font-size: 120%;
+    color: white;
+}
+
+.bidInput:focus{
+    box-shadow: 0px 0px 2px 3.5px #c2dbfe;
+    transition: all 0.2s ease;
+  
+  }

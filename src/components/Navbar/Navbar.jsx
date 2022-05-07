@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import { render } from "@testing-library/react";
+import React, { useState, useEffect } from "react";
 import './navbar.css'
 
 const Navbar = () => {
+
+    const txt = 'nav-link d-flex  me-3 text-dark'
     // const [color,setColor] =useState(false);
 
     // const colorChange =() =>{
@@ -16,14 +19,35 @@ const Navbar = () => {
     // }
 
     // window.addEventListener('scroll',colorChange);
+    const [isLogged, setLogged] = useState(false);
+    
+    
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        
+        if (token) {
+            setLogged(true);
+            
+            
+        }
+        
+    }, [isLogged])
+    
+    const logout = (e) => {
+        e.preventDefault();
 
+        setLogged(false);
+        localStorage.removeItem("token");
 
+        
+    }
+    
     return (
 
+        <>
+        //f7f6fb
 
-
-        <div>
-            <nav className="navbar navbar-expand-lg  navbar-light bg-white fixed-top ">
+             <nav className="navbar navbar-expand-lg  navbar-light  fixed-top " style={{background:'#f7f6fb'}}>
                 <div className="container-fluid" >
                     <a className="navbar-brand bolding me-5" >Auction</a>
 
@@ -38,34 +62,34 @@ const Navbar = () => {
 
                         <form class="d-flex me-auto w-100">
                             <input class="form-control me-2" type="search" placeholder="Search items , categories" aria-label="Search" />
-                            
+
                         </form>
 
                         <ul className="navbar-nav align-content-center ms-5">
 
-                            <li className="nav-item">
+                            <li className="nav-item ">
 
-                                <a className="nav-link d-flex  me-3 " >
+                                <a className={txt} >
                                     Home
                                 </a>
                             </li>
-                            
+
                             <li className="nav-item ">
 
-                                <a className="nav-link d-flex  me-3 " >
+                                <a className={txt} >
                                     Categories
                                 </a>
                             </li>
                             <li className="nav-item">
 
-                                <a className="nav-link d-flex  me-3 " >
+                                <a className={txt} >
                                     About
                                 </a>
                             </li>
                             <li className="nav-item">
 
-                                <a className="nav-link d-flex  me-3 " >
-                                    Contact 
+                                <a className={txt} >
+                                    Contact
                                 </a>
                             </li>
 
@@ -76,15 +100,23 @@ const Navbar = () => {
                                 </a>
                             </li>
 
+                            {isLogged ?
+
+                            <li>
+                                <button onClick={(e)=>logout(e)}>Logout</button>
+                            </li>: null}
+
                         </ul>
                     </div>
                 </div>
             </nav>
+                
 
 
 
 
-        </div>
+
+        </>
 
 
     );

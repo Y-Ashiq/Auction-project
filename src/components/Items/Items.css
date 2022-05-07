@@ -1,0 +1,22 @@
+.biid{
+    margin-top: 5em;
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    column-gap: 3em;
+    justify-items: center;
+
+}
+.items-button:hover , .items-button {
+    margin: 1em;
+    padding: 10px;
+    width: 200px;
+    height: 48px;
+    background: #f8883d;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 142.5px;
+    border: none;
+    font-size: 15pt;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}

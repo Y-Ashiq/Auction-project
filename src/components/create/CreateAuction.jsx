@@ -140,7 +140,7 @@ const CreateAuction = () => {
                 {/* <input onChange={(e) => getFormData(e)} type="text" name="category" id="" /> */}
 
 
-                <label for="condition">Condition</label>
+                <label className="form-label"  for="condition">Condition</label>
                 <select onChange={(e) => getFormData(e)} name="condition" id="condition">
                     <option value="">choose</option>
                     <option value="new">New</option>
