@@ -31,6 +31,7 @@ const App = () => {
           < Route path="/About" component={About} />
           < Route path="/Items" component={Items} />
           
+          
           < Redirect exact from="/" to="/home" />
           < Route path="*" component={NotFound} />
 

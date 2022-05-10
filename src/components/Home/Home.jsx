@@ -10,13 +10,10 @@ const Home = () => {
 
     <>
 
-    
 
     
       <section className="home-background " >
          
-
-
         <div >
             <img className='img-fluid my-5' style={{width:'100%'}}  src="imgs/auc_auto_x2.png" alt="" />
 

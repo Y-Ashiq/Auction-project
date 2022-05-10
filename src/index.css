@@ -3,6 +3,8 @@
 * {
 
     font-family: 'Poppins', sans-serif;
+    transition: all 0.5s ease;
+
    
     
 
@@ -80,7 +82,7 @@ label{
         grid-template-columns: repeat(3,auto);
         column-gap: 3em;
         justify-items: center;
-        transition:  1s ;
+        
     
     
     }
@@ -103,7 +105,6 @@ label{
         grid-template-columns: repeat(2,auto);
         column-gap: 3em;
         justify-items: center;
-        transition:  1s ;
     
     
     }
@@ -119,7 +120,6 @@ label{
         grid-template-columns: repeat(1,auto);
         column-gap: 3em;
         justify-items: center;
-        transition:  1s ;
     
     
     }

@@ -42,10 +42,7 @@ const Login = () => {
         localStorage.setItem("token", JSON.stringify(logInUser.token));
 
         history.push('/home');
-        window.location.reload();
-
-
-
+        // window.location.reload();
         console.log(res);
 
       })
