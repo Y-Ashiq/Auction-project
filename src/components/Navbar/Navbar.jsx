@@ -30,7 +30,7 @@ const Navbar = () => {
 
     useEffect( () => {
         const token = JSON.parse(localStorage.getItem('token'))
-        console.log(token);
+        
 
         const getUser =async ()=>{
             await axios.get('http://159.223.172.150/api/auth-service/users/current-user/', {
@@ -44,7 +44,7 @@ const Navbar = () => {
     
                     // window.location.reload();
                     setuserData(res.data.user.firstName);
-                    console.log(res);
+                
     
                 })
                 .catch((e) => {
@@ -62,7 +62,7 @@ const Navbar = () => {
 
     },[])
 
-    const logout = (e) => {
+    function logout(e) {
         e.preventDefault();
 
         setLogged(false);
@@ -135,7 +135,7 @@ const Navbar = () => {
                                                         Hello,{userData}
                                                 </NavLink>
                                                 <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                                    <li><NavLink to={"/home"}className="dropdown-item">profile</NavLink></li>
+                                                    <li><NavLink to={"/Profile"}className="dropdown-item">profile</NavLink></li>
                                                     <li> <button className="dropdown-item " style={{color:'red'}}  onClick={(e) => logout(e)}>Logout</button></li>
                                                 </ul>
                                             </li>

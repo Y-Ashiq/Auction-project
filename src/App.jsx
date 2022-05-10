@@ -10,6 +10,7 @@ import Items from './components/Items/Items'
 // import Footer from './components/Footer/Footer';
 import CreateAuction from './components/create/CreateAuction';
 import Profile from './components/Profile/Profile'
+import ProtectedRoutes from "./components/protectedRoutes/ProtectedRoutes";
 
 const App = () => {
 
@@ -21,7 +22,7 @@ const App = () => {
         <Navbar />
 
         < Switch >
-
+         <ProtectedRoutes path="/Profile" component={Profile} />
           < Route path="/home" component={Home} />
           < Route path="/Profile" component={Profile} />
           < Route path="/register" component={Register} />
