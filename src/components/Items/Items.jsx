@@ -34,7 +34,6 @@ const Items = () => {
 
 
     return (
-        <div className='d-flex justify-content-center'>
             <div className=' biid' >
 
                 {loading ? <div class="d-flex align-items-center">
@@ -80,7 +79,6 @@ const Items = () => {
             </div>
 
 
-        </div>
 
 
 
