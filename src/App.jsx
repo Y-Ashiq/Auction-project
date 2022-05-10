@@ -9,7 +9,7 @@ import About from './components/About/About';
 import Items from './components/Items/Items'
 // import Footer from './components/Footer/Footer';
 import CreateAuction from './components/create/CreateAuction';
-
+import Profile from './components/Profile/Profile'
 
 const App = () => {
 
@@ -23,6 +23,7 @@ const App = () => {
         < Switch >
 
           < Route path="/home" component={Home} />
+          < Route path="/Profile" component={Profile} />
           < Route path="/register" component={Register} />
           < Route path="/login" component= {Login}/>
           < Route path="/Items/:id" component={Bid} />

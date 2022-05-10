@@ -42,9 +42,7 @@ const Navbar = () => {
             })
                 .then(res => {
     
-    
                     // window.location.reload();
-    
                     setuserData(res.data.user.firstName);
                     console.log(res);
     
@@ -52,10 +50,8 @@ const Navbar = () => {
                 .catch((e) => {
     
                     console.log(e.response.data);
-    
-    
+
                 })
-    
         }
         getUser();
 
