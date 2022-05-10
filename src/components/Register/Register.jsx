@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 function Register(props) {
 
@@ -102,8 +103,8 @@ function Register(props) {
                                             </div>
 
                                             <div className="d-flex align-items-center justify-content-center pb-4">
-                                                <p className="mb-0 me-2">Don't have an account?</p>
-                                                <button type="button" className="btn btn-outline-danger">Create new</button>
+                                                <p className="mb-0 me-2">ALready Have an account?</p>
+                                                <NavLink to={"/login"} type="button" className="btn btn-outline-danger">Sign in</NavLink>
                                             </div>
 
                                         </form>

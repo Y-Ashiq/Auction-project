@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MostBidding from '../most bidding card/Bidding-card';
-import CatCard from '../categories card/Cat-card';
+import CatCard from '../categories card/Cat-card.jsx'
 // import Navbar from '../Navbar/Navbar';
 import './home.css'
 
@@ -61,13 +61,15 @@ const Home = () => {
           <h2 style={{ textAlign: 'center', paddingTop: '2em', paddingBottom: '1em' }}>Categories</h2>
 
           <div className="cat-section">
+            <CatCard name=" Cars"  imageSrc="imgs\car.jpeg"/>
+            <CatCard name="Antique" imageSrc="imgs\Antique.jpg"/>
+            <CatCard name="Art" imageSrc="imgs\Art.jpg"/>
+            <CatCard name="Coin" imageSrc="imgs\coin.jpg"/>
+            <CatCard name="Elctronic" imageSrc="imgs\electronic.jpg"/>
+            <CatCard name="Furniture" imageSrc="imgs\furniture.jpg"/>
+            
 
-            <CatCard />
-            <CatCard />
-            <CatCard />
-            <CatCard />
-            <CatCard />
-            <CatCard />
+       
 
           </div>
         </div>

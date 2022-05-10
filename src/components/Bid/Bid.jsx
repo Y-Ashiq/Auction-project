@@ -3,6 +3,8 @@ import Countdown from 'react-countdown';
 import MostBidding from '../most bidding card/Bidding-card';
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useHistory } from 'react-router-dom';
+
 import axios from "axios";
 
 
@@ -12,12 +14,17 @@ const Bid = () => {
     const { id } = useParams();
     const [dataa, setData] = useState([]);
     const [loading, setloading] = useState(false);
+    const [bid , setbids] = useState(3);
+    const token = JSON.parse(localStorage.getItem('token'))
+    const history = useHistory();
 
 
-    useEffect(async () => {
 
+    useEffect( () => {
         setloading(true)
-       await axios.get(`https://fakestoreapi.com/products/${id}`)
+
+        const getBid =async ()=>{
+            await axios.get(`https://fakestoreapi.com/products/${id}`)
             .then(res => {
                 setData(res.data)
 
@@ -31,8 +38,14 @@ const Bid = () => {
             })
 
 
+            
+        }
+        getBid();
 
-    }, [])
+       
+
+
+    }, [id])
 
 
 
@@ -119,13 +132,15 @@ const Bid = () => {
                                 </div >
 
 
-                                <p style={{ fontSize: '15pt' }}>number of Bids : 30</p>
+                                <p style={{ fontSize: '15pt' }}>number of Bids :{bid}</p>
                             </div>
 
                             <div className="d-flex justify-content-around flex-wrap my-3">
 
                                 <input className="my-3 bid-input bidInput" type="text" name="name" id="" />
-                                <button className=" my-3 bid-button" >submit a bid</button>
+                                <button onClick={ ()=>{ if (!token){ history.push('/login');}
+                                else{setbids(bid+1)}
+                                    }} className=" my-3 bid-button" >submit a bid</button>
 
                             </div>
 

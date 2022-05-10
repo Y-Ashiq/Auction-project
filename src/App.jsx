@@ -1,5 +1,4 @@
 import { Redirect, Route, Switch } from "react-router-dom";
-import React, { Component ,useState} from 'react';
 import Home from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import NotFound from './components/NotFound/NotFound';

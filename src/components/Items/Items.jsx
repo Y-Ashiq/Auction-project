@@ -11,25 +11,40 @@ const Items = () => {
     const [dataa, setData] = useState([]);
     const [loading, setloading] = useState(false);
 
-    useEffect(async () => {
+    
+
+    
+
+    useEffect( () => {
 
         setloading(true)
-        await axios.get('https://fakestoreapi.com/products')
-            .then(res => {
-                setData(res.data)
 
-                console.log(res)
-                setloading(false)
+        const AuctionItems = async() =>{
+
+            await axios.get('https://fakestoreapi.com/products')
+                .then(res => {
+                    setData(res.data)
+    
+                    console.log(res)
+                    setloading(false)
+    
+    
+    
+                }).catch(err => {
+                    console.log(err)
+                })
+    
+    
+    
+    
+        }
+
+        AuctionItems();
+        
 
 
 
-            }).catch(err => {
-                console.log(err)
-            })
-
-
-
-    }, [])
+    }, [ ])
 
 
 

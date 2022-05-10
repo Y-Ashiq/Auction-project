@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 const Login = () => {
@@ -15,6 +16,8 @@ const Login = () => {
       password: ' '
     }
   );
+
+  // const [tok , setTok] = useState(" ");
 
 
   const [errorMssg, seterrorMssg] = useState(" ");
@@ -31,19 +34,26 @@ const Login = () => {
 
 
   }
+  
 
   const sendData = async (e) => {
-
+    
     e.preventDefault();
 
     await axios.post("http://159.223.172.150/api/auth-service/users/login", logInUser)
       .then(res => {
 
-        localStorage.setItem("token", JSON.stringify(logInUser.token));
+        localStorage.setItem("token", JSON.stringify(res.data.token));
 
         history.push('/home');
-        // window.location.reload();
+        window.location.reload();
+      
+
         console.log(res);
+        console.log(res.data.token);
+        // setTok(res.data.token);
+
+        
 
       })
       .catch((e) => {
@@ -54,6 +64,19 @@ const Login = () => {
 
       })
   }
+
+
+  
+
+
+
+
+
+
+  
+
+
+
 
 
   return (
@@ -112,7 +135,7 @@ const Login = () => {
 
                       <div className="d-flex align-items-center justify-content-center pb-4">
                         <p className="mb-0 me-2">Don't have an account?</p>
-                        <button type="button" className="btn btn-outline-danger">Create new</button>
+                        <NavLink to={"/register"} type="button" className="btn btn-outline-danger">Create new</NavLink>
                       </div>
 
                     </form>
@@ -131,7 +154,7 @@ const Login = () => {
                   </div>
 
                 </div>
-                
+
               </div>
             </div>
           </div>
