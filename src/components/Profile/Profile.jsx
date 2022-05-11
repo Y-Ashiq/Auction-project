@@ -1,11 +1,13 @@
-import react from "react";
 import "./Profile.css"
 import axios from 'axios'
 import React, { useState, useEffect } from "react";
+import MostBidding from '../most bidding card/Bidding-card';
+
 
 
 
 const Profile = () => {
+    const [tab , setTab] = useState(1);
 
     const [user, setuserData] = useState(
         {
@@ -47,6 +49,105 @@ const Profile = () => {
 
     }, [])
 
+    const TabContent = ()=>{
+
+
+       if(tab == 1){
+
+        return(
+            <div className="container d-flex justify-content-center">
+                       
+                                <div className="col-lg-8 ">
+                                <div className="row">
+                                    <div className="col-12">
+                                        <div className="row card rounded-4  py-2 bg-bg-white my-3 w-75 profile " >
+    
+                                            <div className="row pb-3 ">
+    
+                                                <h3 className=" fs-2">Personal info </h3>
+    
+                                            </div>
+                                           
+                                                    <div className="row">
+                                                        <ul className="list-unstyled">
+    
+                                                            <li className="mb-2">First Name: {user.firstName}</li>
+                                                            <li className="mb-2">Last Name: {user.lastName}</li>
+                                                            <li className="mb-2">Age :22</li>
+                                                            <li className="mb-2">Adress :alex ,egypt</li>
+    
+    
+    
+                                                        </ul>
+                                                    </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-12">
+                                        <div className="row card rounded-4  py-2 bg-bg-white my-3 w-75 profile ">
+    
+                                            <div className="row pb-3 ">
+    
+                                                <h3 className=" fs-2">Email Adress  </h3>
+                                            </div>
+    
+                                            <div className="row">
+                                                <ul className="list-unstyled">
+    
+                                                    <li className="mb-2">email: {user.email}</li>
+    
+    
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-12">
+                                        <div className="row card rounded-4 py-2 bg-bg-white my-3 w-75 profile">
+    
+                                            <div className="row pb-3 ">
+    
+                                                <h3 className=" fs-2">Phone Number </h3>
+                                            </div>
+    
+                                            <div className="row">
+                                                <ul className="list-unstyled">
+    
+                                                    <li className="mb-2">Phone Number:{user.phoneNumber}</li>
+    
+    
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    
+                                    <div className="col-12">
+    
+                                    </div>
+                                </div>
+                            </div>
+                                
+
+            </div>
+        )
+       }else if (tab == 2){
+
+
+        return(
+            <div>
+          <MostBidding />
+
+
+            </div>
+        )
+       }
+
+
+
+
+    }
+
+
+    
+   
  
 
     return (
@@ -165,11 +266,11 @@ const Profile = () => {
                                     <img src="imgs\img.jpg" alt="" className="rounded-circle w-25" />
                                     <h3> {user.firstName} {user.lastName}</h3>
                                     <ul className="list-unstyled ">
-                                        <li className='mb-2'>
+                                        <li className='mb-2' onClick={()=>{ setTab(1) }}>
                                             <a className='text-decoration-none' href="#"><i class="fa-solid fa-bars-progress "></i>Personal Profile </a>
                                         </li>
-                                        <li className='mb-2'>
-                                            <a className='text-decoration-none' href="#"><i class="fa-solid fa-bars-progress "></i>Personal Profile </a>
+                                        <li className='mb-2' onClick={ ()=>{ setTab(2)}}>
+                                            <a className='text-decoration-none' href="#"><i class="fa-solid fa-bars-progress "></i>Winning page </a>
                                         </li>
 
 
@@ -178,77 +279,11 @@ const Profile = () => {
                             </div>
 
                         </div>
+                        
+                        <TabContent />
 
                        
-                             
-                                <div className="col-lg-8 ">
-                                <div className="row">
-                                    <div className="col-12">
-                                        <div className="row card rounded-4  py-2 bg-bg-white my-3 w-75 profile " >
-    
-                                            <div className="row pb-3 ">
-    
-                                                <h3 className=" fs-2">Personal info </h3>
-    
-                                            </div>
-                                           
-                                                    <div className="row">
-                                                        <ul className="list-unstyled">
-    
-                                                            <li className="mb-2">First Name: {user.firstName}</li>
-                                                            <li className="mb-2">Last Name: {user.lastName}</li>
-                                                            <li className="mb-2">Age :22</li>
-                                                            <li className="mb-2">Adress :alex ,egypt</li>
-    
-    
-    
-                                                        </ul>
-                                                    </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-12">
-                                        <div className="row card rounded-4  py-2 bg-bg-white my-3 w-75 profile ">
-    
-                                            <div className="row pb-3 ">
-    
-                                                <h3 className=" fs-2">Email Adress  </h3>
-                                            </div>
-    
-                                            <div className="row">
-                                                <ul className="list-unstyled">
-    
-                                                    <li className="mb-2">email: {user.email}</li>
-    
-    
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-12">
-                                        <div className="row card rounded-4 py-2 bg-bg-white my-3 w-75 profile">
-    
-                                            <div className="row pb-3 ">
-    
-                                                <h3 className=" fs-2">Phone Number </h3>
-                                            </div>
-    
-                                            <div className="row">
-                                                <ul className="list-unstyled">
-    
-                                                    <li className="mb-2">Phone Number:{user.phoneNumber}</li>
-    
-    
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    
-                                    <div className="col-12">
-    
-                                    </div>
-                                </div>
-                            </div>
-                                
+                      
    
 
                         

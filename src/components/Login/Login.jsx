@@ -113,13 +113,13 @@ const Login = () => {
                     <form className="text-center " onSubmit={(e) => sendData(e)}>
                       <p> or use your account </p>
                       <label className="form-label " for="form2Example11">email</label>
-                      <div className="form-outline mb-4">
-                        <input onChange={(e) => getFormData(e)} type="email" name='email' id="form2Example11" className=" auction-input " />
+                      <div className=" mb-4">
+                        <input onChange={(e) => getFormData(e)} type="email" name='email'className=" form-control rounded-pill " />
                       </div>
 
                       <label className="form-label " for="form2Example22">Password</label>
-                      <div className="form-outline mb-4">
-                        <input onChange={(e) => getFormData(e)} type="password" name='password' id="form2Example22" className="auction-input " />
+                      <div className="-4">
+                        <input onChange={(e) => getFormData(e)} type="password" name='password'  className="form-control rounded-pill " />
 
                       </div>
 
