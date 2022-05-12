@@ -133,8 +133,7 @@ const Profile = () => {
 
         return(
             <div>
-          <MostBidding />
-
+          <MostBidding /> 
 
             </div>
         )
@@ -147,8 +146,6 @@ const Profile = () => {
 
 
     
-   
- 
 
     return (
         <>
@@ -282,15 +279,6 @@ const Profile = () => {
                         
                         <TabContent />
 
-                       
-                      
-   
-
-                        
-                            
-
-
-                      
                
                     </div>
                 </div>
