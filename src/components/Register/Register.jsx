@@ -114,7 +114,7 @@ function Register(props) {
                                     </div>
                                 </div>
 
-                                <div className="col-lg-6 d-flex align-items-center gradient-custom-2 form-side">
+                                <div className="bg-image col-lg-6 d-flex align-items-center gradient-custom-2 form-side ">
                                     <div className="text-white px-3 py-4 p-md-5 mx-md-4">
                                         <h4 className="mb-4 bolding">we offer the best for you</h4>
                                         <p className="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do

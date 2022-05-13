@@ -1,52 +1,28 @@
 import "./Bid.css";
 import Countdown from 'react-countdown';
 import MostBidding from '../most bidding card/Bidding-card';
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+
+
+import useFetchBid from "../../API/useFetchBid";
+import { useState } from "react";
 import { useHistory } from 'react-router-dom';
 
-import axios from "axios";
 
 
 
 
 const Bid = () => {
-    const { id } = useParams();
-    const [dataa, setData] = useState([]);
-    const [loading, setloading] = useState(false);
+    const url = 'https://fakestoreapi.com/products/';
+    const {dataa , loading } = useFetchBid(url);
+
+
     const [bid , setbids] = useState(3);
     const token = JSON.parse(localStorage.getItem('token'))
     const history = useHistory();
 
 
 
-    useEffect( () => {
-        setloading(true)
-
-        const getBid =async ()=>{
-            await axios.get(`https://fakestoreapi.com/products/${id}`)
-            .then(res => {
-                setData(res.data)
-
-                console.log(res)
-                setloading(false)
-
-
-
-            }).catch(err => {
-                console.log(err)
-            })
-
-
-            
-        }
-        getBid();
-
-       
-
-
-    }, [id])
-
+   
 
 
     return (
@@ -54,7 +30,7 @@ const Bid = () => {
 
             {loading ?
             
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center my-5">
                  <div class="d-flex align-items-center my-5">
                 <strong className='mx-0'>Loading...</strong>
                 <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>

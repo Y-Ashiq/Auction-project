@@ -17,11 +17,7 @@ const Login = () => {
     }
   );
 
-  // const [tok , setTok] = useState(" ");
-
-
   const [errorMssg, seterrorMssg] = useState(" ");
-
 
 
   const getFormData = (e) => {
@@ -63,20 +59,7 @@ const Login = () => {
         seterrorMssg(e.response.data.message);
 
       })
-  }
-
-
-  
-
-
-
-
-
-
-  
-
-
-
+  };
 
 
   return (
@@ -130,7 +113,7 @@ const Login = () => {
 
                       <div className="m-4  text-center" >
 
-                        <input className="btn gg btn-lg text-white rounded-pill form-colors" type="submit" value="Log in " />
+                        <input className="btn btn-lg text-white rounded-pill form-colors" type="submit" value="Log in " />
                       </div>
 
                       <div className="d-flex align-items-center justify-content-center pb-4">
@@ -144,7 +127,7 @@ const Login = () => {
 
                 </div>
 
-                <div class="col-lg-6 d-flex align-items-center gradient-custom-2 form-side " >
+                <div class="bg-image col-lg-6 d-flex align-items-center gradient-custom-2 form-side " >
                   <div class="text-white px-3 py-4 p-md-5 mx-md-4 ">
                     <h4 class="mb-4 text-white bolding">we offer the best for you</h4>
                     <p class="small mb-0 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

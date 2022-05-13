@@ -67,6 +67,7 @@ const Navbar = () => {
 
         setLogged(false);
         localStorage.removeItem("token");
+        window.location.reload();
 
 
     }

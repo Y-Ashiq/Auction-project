@@ -52,7 +52,7 @@ const Profile = () => {
     const TabContent = ()=>{
 
 
-       if(tab == 1){
+       if(tab === 1){
 
         return(
             <div className="container d-flex justify-content-center">
@@ -128,7 +128,7 @@ const Profile = () => {
 
             </div>
         )
-       }else if (tab == 2){
+       }else if (tab === 2){
 
 
         return(

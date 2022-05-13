@@ -4,36 +4,39 @@
 
     font-family: 'Poppins', sans-serif;
 
-   
-    
+
+
 
 
 }
 
-.bolding{
+.bolding {
 
     font-weight: bold;
     font-size: 18pt;
 }
-.bolding2{
+
+.bolding2 {
 
     font-weight: bold;
 }
-label{
+
+label {
 
     font-weight: bold;
 
 }
 
-.form-colors{
+.form-colors {
 
-    background-color: #f3752b;
+    background-color: #B57F5D;
     width: 200px;
 }
-.form-side{
 
-    background-color: #2081E2;
-     border-radius: 15px;
+.form-side {
+
+    background-image: url('https://mocah.org/thumbs/5385252-portrait-painting-framed-portrait-spotlight-van-gogh-black-dark-light-art-artist-modernity-gogh-van-vincent-creative-commons-images.jpg');
+    border-radius: 15px;
 }
 
 
@@ -54,7 +57,7 @@ label{
     .card-button {
         font-size: 12pt;
         width: 60%;
-      
+
         margin-bottom: 1em;
     }
 
@@ -68,9 +71,10 @@ label{
 
 
     }
-  
+
 
 }
+
 /* 
 @media screen and (max-width :1500px) {
 

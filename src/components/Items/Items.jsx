@@ -1,66 +1,33 @@
-import axios from 'axios'
-import { useState } from 'react';
-import { useEffect } from 'react/cjs/react.development';
-import Countdown from 'react-countdown';
-import "./Items.css"
 import { NavLink } from 'react-router-dom';
-import Pagination from '../Pagination/Pagination';
+import "./Items.css"
+import Countdown from 'react-countdown';
+import ReactPaginate from 'react-paginate';
+import useFetchItems from '../../API/useFetchItems';
+import PaginateItems from '../../Hooks/PaginateItems';
+
 
 
 const Items = () => {
-
-
-    const [dataa, setData] = useState([]);
-    const [loading, setloading] = useState(false);
-
-    const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage] = useState(10);
+    const url = 'https://fakestoreapi.com/products';
+    const { dataa, loading } = useFetchItems(url);
 
 
 
+    const itemsPerPage = 10;
+    const {pageCount , endOffset ,itemOffset , handlePageClick} = PaginateItems(itemsPerPage , dataa);
 
-
-    useEffect(() => {
-
-        setloading(true)
-
-        const AuctionItems = async () => {
-
-            await axios.get('https://fakestoreapi.com/products')
-                .then(res => {
-                    setData(res.data)
-
-                    console.log(res)
-                    setloading(false)
-
-
-
-                }).catch(err => {
-                    console.log(err)
-                })
-
-
-        }
-
-        AuctionItems();
-
-    }, []);
-
-    const indexOfLastPost = currentPage * postsPerPage;
-    const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const paginate = pageNumber => setCurrentPage(pageNumber);
-
+ 
 
     return (
         <div>
             <div className=' biid' >
 
-                {loading ? <div class="d-flex align-items-center">
+                {loading ? <div className="d-flex align-items-center">
                     <strong className='mx-3'>Loading...</strong>
-                    <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
-                </div> : dataa.slice(indexOfFirstPost, indexOfLastPost).map((product) => {
+                    <div className="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+                </div> : dataa.slice(itemOffset, endOffset).map((product) => {
                     return (
-                        <div className='  my-4'>
+                        <div className='  my-3'>
 
                             <div className="Bidding-Card">
 
@@ -100,12 +67,40 @@ const Items = () => {
 
 
 
+
             </div>
-            <Pagination
-                postsPerPage={postsPerPage}
-                totalPosts={dataa.length}
-                paginate={paginate}
-            />
+
+
+
+            <div className="container d-flex align-items-center">
+
+                <ReactPaginate
+                    nextLabel="next >"
+                    onPageChange={handlePageClick}
+                    pageRangeDisplayed={3}
+                    marginPagesDisplayed={2}
+                    pageCount={pageCount}
+                    previousLabel="< previous"
+                    pageClassName="page-item"
+                    pageLinkClassName="page-link"
+                    previousClassName="page-item"
+                    previousLinkClassName="page-link"
+                    nextClassName="page-item"
+                    nextLinkClassName="page-link"
+                    breakLabel="..."
+                    breakClassName="page-item"
+                    breakLinkClassName="page-link"
+                    containerClassName="pagination"
+                    activeClassName="active"
+                    renderOnZeroPageCount={null}
+                />
+
+
+
+
+            </div>
+
+
 
 
         </div>
