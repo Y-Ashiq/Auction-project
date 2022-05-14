@@ -15,7 +15,8 @@
     display: grid;
     justify-content: center;
     justify-items: center;
-    grid-template-columns: repeat(3, 430px);
+    grid-template-columns: repeat( auto-fit , minmax(350px,500px));
+    row-gap: 20px;
 
 }
 
@@ -26,7 +27,7 @@
     display: grid;
     justify-content: center;
     justify-items: center;
-    grid-template-columns: repeat(3, 400px);
+    grid-template-columns: repeat( auto-fit , minmax(350px,500px));
     row-gap: 3em;
 
 

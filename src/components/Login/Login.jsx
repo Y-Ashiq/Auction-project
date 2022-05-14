@@ -2,6 +2,9 @@ import axios from 'axios'
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+import Navbar from '../Navbar/Navbar';
+
+
 
 
 const Login = () => {
@@ -64,10 +67,11 @@ const Login = () => {
 
   return (
     <>
+     <Navbar />
 
 
-      <section className=" m-5" >
-        <div className="row d-flex justify-content-center align-items-center m-5 py-5 ">
+      <section className=" mt-5 pt-5" >
+        <div className="d-flex justify-content-center align-items-center ">
           <div className="col-xl-10 ">
             <div className=" card shadow text-black " style={{ borderRadius: '15px' }}>
               <div className="row g-0">
@@ -93,16 +97,16 @@ const Login = () => {
                       </button>
                     </div>
 
-                    <form className="text-center " onSubmit={(e) => sendData(e)}>
+                    <form className="text-center px-3 " onSubmit={(e) => sendData(e)}>
                       <p> or use your account </p>
                       <label className="form-label " for="form2Example11">email</label>
                       <div className=" mb-4">
-                        <input onChange={(e) => getFormData(e)} type="email" name='email'className=" form-control rounded-pill " />
+                        <input onChange={(e) => getFormData(e)} type="email" name='email'className=" form-control rounded-3 " />
                       </div>
 
                       <label className="form-label " for="form2Example22">Password</label>
                       <div className="-4">
-                        <input onChange={(e) => getFormData(e)} type="password" name='password'  className="form-control rounded-pill " />
+                        <input onChange={(e) => getFormData(e)} type="password" name='password'  className="form-control rounded-3 " />
 
                       </div>
 
@@ -113,7 +117,7 @@ const Login = () => {
 
                       <div className="m-4  text-center" >
 
-                        <input className="btn btn-lg text-white rounded-pill form-colors" type="submit" value="Log in " />
+                        <input className="btn btn-lg text-white rounded-3 form-colors" type="submit" value="Log in " />
                       </div>
 
                       <div className="d-flex align-items-center justify-content-center pb-4">
@@ -127,14 +131,9 @@ const Login = () => {
 
                 </div>
 
-                <div class="bg-image col-lg-6 d-flex align-items-center gradient-custom-2 form-side " >
-                  <div class="text-white px-3 py-4 p-md-5 mx-md-4 ">
-                    <h4 class="mb-4 text-white bolding">we offer the best for you</h4>
-                    <p class="small mb-0 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <div class="bg-image col-lg-6 d-flex form-side " >
 
-                  </div>
+                 
 
                 </div>
 
@@ -149,4 +148,3 @@ const Login = () => {
 }
 
 export default Login;
-

@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
+
 
 function Register(props) {
 
@@ -34,9 +36,11 @@ function Register(props) {
     }
     return (
         <>
+                <Navbar />
 
-            <section className="m-5">
-                <div className="row d-flex justify-content-center align-items-center  m-5 py-5 ">
+
+            <section className="mt-5 pt-5">
+                <div className=" d-flex justify-content-center align-items-center  ">
                     <div className="col-xl-10">
                         <div className=" card shadow text-black "
                             style={{ borderRadius: '15px' }}>
@@ -63,27 +67,27 @@ function Register(props) {
                                             </button>
                                         </div>
 
-                                        <form onSubmit={sendData} className="text-center">
+                                        <form onSubmit={sendData} className="text-center px-2">
                                             <p> or create your account </p>
                                             <div className="row">
                                                 <div className=" col-md-6 mb-4">
-                                                    <input onChange={getUser} type="text" name="firstName" className="form-control rounded-pill" placeholder="First name" />
+                                                    <input onChange={getUser} type="text" name="firstName" className="form-control rounded-3" placeholder="First name" />
 
                                                 </div>
                                                 <div className=" col-md-6 mb-4">
 
-                                                    <input onChange={getUser} type="text" name='lastName' className="form-control rounded-pill" placeholder="last name" />
+                                                    <input onChange={getUser} type="text" name='lastName' className="form-control rounded-3" placeholder="last name" />
 
                                                 </div>
                                             </div>
                                             <div className=" mb-4">
 
-                                                <input onChange={getUser} type="email" name="email" className="form-control rounded-pill" placeholder="Email" />
+                                                <input onChange={getUser} type="email" name="email" className="form-control rounded-3" placeholder="Email" />
 
                                             </div>
                                             <div className="mb-4 ">
 
-                                                <input onChange={getUser} type="tel" name='phoneNumber' id="form3Example3" className=" form-control rounded-pill" placeholder="phone number" />
+                                                <input onChange={getUser} type="tel" name='phoneNumber' id="form3Example3" className=" form-control rounded-3" placeholder="phone number" />
 
                                             </div>
 
@@ -92,14 +96,14 @@ function Register(props) {
 
                                             <div className="mb-4">
 
-                                                <input onChange={getUser} type="password" name='password' id="form2Example22" className=" form-control rounded-pill" placeholder="Password" />
+                                                <input onChange={getUser} type="password" name='password' id="form2Example22" className=" form-control rounded-3" placeholder="Password" />
 
                                             </div>
 
                                            
 
                                             <div className="m-4  text-center">
-                                                <input className="btn gg btn-lg text-white rounded-pill form-colors" type="submit" value="Sign up " />
+                                                <input className="btn gg btn-lg text-white rounded-3 form-colors" type="submit" value="Sign up " />
                                             </div>
 
                                             <div className="d-flex align-items-center justify-content-center pb-4">
@@ -114,15 +118,10 @@ function Register(props) {
                                     </div>
                                 </div>
 
-                                <div className="bg-image col-lg-6 d-flex align-items-center gradient-custom-2 form-side ">
-                                    <div className="text-white px-3 py-4 p-md-5 mx-md-4">
-                                        <h4 className="mb-4 bolding">we offer the best for you</h4>
-                                        <p className="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                            eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                            nostrud
-                                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                    </div>
+                                <div className=" bg-image col-lg-6 d-flex form-side " >
+                                  
+                                       {/* <img style={{objectFit:'none' }} className=" bg-image" src="https://mocah.org/thumbs/5385252-portrait-painting-framed-portrait-spotlight-van-gogh-black-dark-light-art-artist-modernity-gogh-van-vincent-creative-commons-images.jpg" alt="" /> */}
+                                  
                                 </div>
                             </div>
                         </div>

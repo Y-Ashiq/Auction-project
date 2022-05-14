@@ -4,6 +4,8 @@ import Countdown from 'react-countdown';
 import ReactPaginate from 'react-paginate';
 import useFetchItems from '../../API/useFetchItems';
 import PaginateItems from '../../Hooks/PaginateItems';
+import Navbar from "../Navbar/Navbar";
+
 
 
 
@@ -14,12 +16,15 @@ const Items = () => {
 
 
     const itemsPerPage = 10;
-    const {pageCount , endOffset ,itemOffset , handlePageClick} = PaginateItems(itemsPerPage , dataa);
+    const { pageCount, endOffset, itemOffset, handlePageClick } = PaginateItems(itemsPerPage, dataa);
 
- 
+
 
     return (
         <div>
+
+            <Navbar />
+
             <div className=' biid' >
 
                 {loading ? <div className="d-flex align-items-center">
@@ -53,7 +58,7 @@ const Items = () => {
 
                                 </div>
 
-                                <NavLink className="items-button d-flex justify-content-center" to={`/Items/${product.id}`}> submit a bid</NavLink>
+                                <NavLink className="form-control d-flex justify-content-center form-colors text-white text-decoration-none my-2 py-2 " style={{height:'45px'}} to={`/Items/${product.id}`}> submit a bid</NavLink>
                             </div>
 
 

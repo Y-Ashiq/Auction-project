@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from 'axios';
 import "./craete_auction.css";
+import Navbar from "../Navbar/Navbar";
+
 
 const CreateAuction = () => {
 
@@ -42,22 +44,22 @@ const CreateAuction = () => {
     }
 
     function Status() {
-        
+
         if (auctionImage.length < 5) {
 
             return (
                 <div>
-                      <p> upload at least 5 images </p>
-                      <p> {auctionImage.length} images uploaded</p>
+                    <p> upload at least 5 images </p>
+                    <p> {auctionImage.length} images uploaded</p>
                 </div>
-           
-            
+
+
             );
-        } else{
-            return(
+        } else {
+            return (
                 <div>
-                <p> {auctionImage.length} images uploaded</p>
-          </div>
+                    <p> {auctionImage.length} images uploaded</p>
+                </div>
             )
 
 
@@ -113,58 +115,64 @@ const CreateAuction = () => {
 
 
     return (
+        <div>
+            <Navbar />
 
-        <div className="wraper m-5">
+            <div className="wraper m-5">
 
-            <div className="content" style={{ marginTop: '4em', marginBottom: '4em' }}>
+                <div className="content" style={{ marginTop: '4em', marginBottom: '4em' }}>
 
-                <label className="form-label" for="firstclassName">item name</label>
-                <input className="auction-input" onChange={(e) => getFormData(e)} type="text" name="name" id="" />
+                    <label className="form-label" for="firstclassName">item name</label>
+                    <input className="auction-input" onChange={(e) => getFormData(e)} type="text" name="name" id="" />
 
-                <label className="form-label" for="firstclassName">auctio id</label>
-                <input className="auction-input" onChange={(e) => getFormData(e)} type="text" name="auctionID" id="" />
+                    <label className="form-label" for="firstclassName">auctio id</label>
+                    <input className="auction-input" onChange={(e) => getFormData(e)} type="text" name="auctionID" id="" />
 
-                <label className="form-label" for="firstclassName">description</label>
-                <textarea onChange={(e) => getFormData(e)} type="text" name="description" style={{marginBottom:'1em'}} id="" rows="4" cols="50">
+                    <label className="form-label" for="firstclassName">description</label>
+                    <textarea onChange={(e) => getFormData(e)} type="text" name="description" style={{ marginBottom: '1em' }} id="" rows="4" cols="50">
 
-                </textarea>
+                    </textarea>
 
-                <label className="form-label" for="firstclassName">category</label>
+                    <label className="form-label" for="firstclassName">category</label>
 
-                <select onChange={(e) => getFormData(e)} name="category" id="condition">
-                    <option value="">choose</option>
-                    <option value="antique">antique</option>
-                    <option value="car">car</option>
-                </select>
+                    <select onChange={(e) => getFormData(e)} name="category" id="condition">
+                        <option value="">choose</option>
+                        <option value="antique">antique</option>
+                        <option value="car">car</option>
+                    </select>
 
-                {/* <input onChange={(e) => getFormData(e)} type="text" name="category" id="" /> */}
+                    {/* <input onChange={(e) => getFormData(e)} type="text" name="category" id="" /> */}
 
 
-                <label className="form-label"  for="condition">Condition</label>
-                <select onChange={(e) => getFormData(e)} name="condition" id="condition">
-                    <option value="">choose</option>
-                    <option value="new">New</option>
-                    <option value="used">Used</option>
-                </select>
-                {/* <input onChange={(e) => getFormData(e)} type="text" name="condition" id="" /> */}
+                    <label className="form-label" for="condition">Condition</label>
+                    <select onChange={(e) => getFormData(e)} name="condition" id="condition">
+                        <option value="">choose</option>
+                        <option value="new">New</option>
+                        <option value="used">Used</option>
+                    </select>
+                    {/* <input onChange={(e) => getFormData(e)} type="text" name="condition" id="" /> */}
 
-                <label className="label1" for="file">upload images</label>
-                
-                <input type="file" name="auctionImage" id="file" className="auction-input" onChange={(e) => imgFormData(e)} multiple />
-                <Status />
+                    <label className="label1" for="file">upload images</label>
 
-                
-
-                <div style={{color: 'red'}}> {errHandler}</div>
+                    <input type="file" name="auctionImage" id="file" className="auction-input" onChange={(e) => imgFormData(e)} multiple />
+                    <Status />
 
 
 
-                <button className="auction-button" onClick={createauc}>upload</button>
+                    <div style={{ color: 'red' }}> {errHandler}</div>
 
 
-            </div>
 
-        </div >
+                    <button className="auction-button" onClick={createauc}>upload</button>
+
+
+                </div>
+
+            </div >
+
+        </div>
+
+
 
 
 

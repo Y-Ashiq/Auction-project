@@ -10,7 +10,7 @@ import Items from './components/Items/Items'
 // import Footer from './components/Footer/Footer';
 import CreateAuction from './components/create/CreateAuction';
 import Profile from './components/Profile/Profile'
-import ProtectedRoutes from "./components/protectedRoutes/ProtectedRoutes";
+import ProtectedRoutes from "./Hooks/ProtectedRoutes";
 
 const App = () => {
 
@@ -19,7 +19,6 @@ const App = () => {
     return (
       <>
 
-        <Navbar />
 
         < Switch >
          <ProtectedRoutes path="/Profile" component={Profile} />

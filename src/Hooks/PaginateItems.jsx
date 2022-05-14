@@ -8,6 +8,7 @@ const PaginateItems = (itemsPerPage ,dataa) => {
     const [itemOffset, setItemOffset] = useState(0);
 
     const endOffset = itemOffset + itemsPerPage;
+    
     useEffect(() => {
         setPageCount(Math.ceil(dataa.length / itemsPerPage));
     }, [itemOffset, itemsPerPage, dataa]);

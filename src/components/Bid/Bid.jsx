@@ -1,6 +1,8 @@
 import "./Bid.css";
 import Countdown from 'react-countdown';
 import MostBidding from '../most bidding card/Bidding-card';
+import Navbar from "../Navbar/Navbar";
+
 
 
 import useFetchBid from "../../API/useFetchBid";
@@ -13,37 +15,39 @@ import { useHistory } from 'react-router-dom';
 
 const Bid = () => {
     const url = 'https://fakestoreapi.com/products/';
-    const {dataa , loading } = useFetchBid(url);
+    const { dataa, loading } = useFetchBid(url);
 
 
-    const [bid , setbids] = useState(3);
+    const [bid, setbids] = useState(3);
     const token = JSON.parse(localStorage.getItem('token'))
     const history = useHistory();
 
 
 
-   
+
 
 
     return (
         <>
+            <Navbar />
+
 
             {loading ?
-            
-            <div className="d-flex justify-content-center my-5">
-                 <div class="d-flex align-items-center my-5">
-                <strong className='mx-0'>Loading...</strong>
-                <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
-            </div>
-            </div>
-            :
+
+                <div className="d-flex justify-content-center my-5">
+                    <div class="d-flex align-items-center my-5">
+                        <strong className='mx-0'>Loading...</strong>
+                        <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+                    </div>
+                </div>
+                :
                 <div className="d-flex justify-content-center my-5 ">
 
                     <div className=" viewItemContainer row my-5">
 
                         <div className="col-xl d-flex justify-content-center">
 
-                            <img src={dataa.image} style={{width:'70%' , height:'auto'} }  alt="" />
+                            <img src={dataa.image} style={{ width: '70%', height: 'auto' }} alt="" />
                             {/* <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
                                 <div className="carousel-inner">
 
@@ -101,6 +105,7 @@ const Bid = () => {
                                 </div>
                             </div>
                             <div className="d-flex justify-content-around my-3" >
+
                                 <div style={{ color: 'crimson', fontSize: '15pt' }}>
                                     Expires on :
                                     <Countdown date={Date.now() + 10000} />
@@ -111,12 +116,14 @@ const Bid = () => {
                                 <p style={{ fontSize: '15pt' }}>number of Bids :{bid}</p>
                             </div>
 
-                            <div className="d-flex justify-content-around flex-wrap my-3">
+                            <div className="d-flex justify-content-center flex-wrap">
 
-                                <input className="my-3 bid-input bidInput" type="text" name="name" id="" />
-                                <button onClick={ ()=>{ if (!token){ history.push('/login');}
-                                else{setbids(bid+1)}
-                                    }} className=" my-3 bid-button" >submit a bid</button>
+                                <input className=" form-control rounded-3 my-3 mx-3 w-50"  type="number" name="name" id="" />
+
+                                <button onClick={() => {
+                                    if (!token) { history.push('/login'); }
+                                    else { setbids(bid + 1) }
+                                }} className=" btn text-white rounded-3 my-3 form-colors"  >submit a bid</button>
 
                             </div>
 
