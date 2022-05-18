@@ -11,6 +11,7 @@ import Items from './components/Items/Items'
 import CreateAuction from './components/create/CreateAuction';
 import Profile from './components/Profile/Profile'
 import ProtectedRoutes from "./Hooks/ProtectedRoutes";
+import SearchTerm from "./components/Search/SearchTerm";
 
 const App = () => {
 
@@ -30,6 +31,8 @@ const App = () => {
           < Route path="/createAuction" component={CreateAuction} />
           < Route path="/About" component={About} />
           < Route path="/Items" component={Items} />
+          < Route path="/searchTerm/:keyWord" component={SearchTerm} />
+
           
           
           < Redirect exact from="/" to="/home" />

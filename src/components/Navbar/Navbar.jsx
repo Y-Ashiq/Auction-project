@@ -1,54 +1,43 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import './navbar.css'
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
+
+import { useHistory } from 'react-router-dom';
+
 
 const Navbar = () => {
 
     const txt = 'nav-link d-flex  me-3 bolding2 '
 
     const [userData, setuserData] = useState();
+    const history = useHistory();
 
-
-    // const [color,setColor] =useState(false);
-
-    // const colorChange =() =>{
-
-    //     if(window.scrollY >= 0){
-
-    //         setColor(true);
-
-    //     }else{
-    //         setColor(false)
-    //     }
-    // }
-
-    // window.addEventListener('scroll',colorChange);
     const [isLogged, setLogged] = useState(false);
-   
 
+    const [searchTerm, setSearchTerm] = useState("");
 
-    useEffect( () => {
+    useEffect(() => {
         const token = JSON.parse(localStorage.getItem('token'))
-        
 
-        const getUser =async ()=>{
+
+        const getUser = async () => {
             await axios.get('http://159.223.172.150/api/auth-service/users/current-user/', {
-    
+
                 headers: {
                     'x-access-token': token
-    
+
                 }
             })
                 .then(res => {
-    
+
                     // window.location.reload();
                     setuserData(res.data.user.firstName);
-                
-    
+
+
                 })
                 .catch((e) => {
-    
+
                     console.log(e.response.data);
 
                 })
@@ -60,22 +49,35 @@ const Navbar = () => {
 
         }
 
-    },[])
+    }, [])
 
     function logout(e) {
         e.preventDefault();
 
         setLogged(false);
         localStorage.removeItem("token");
-        window.location.reload();
 
 
     }
 
+    function checkpress(e){
+        if(e.key === 'Enter'){
+          history.push(`/searchTerm/${searchTerm}`)
+        }
+
+    }
+
+
+
+    console.log(searchTerm);
+
     return (
 
         <>
-        {/* f7f6fb*/}
+            {/* f7f6fb*/}
+
+
+
 
             <nav className="navbar navbar-expand-lg  navbar-light  fixed-top " style={{ background: '#f7f6fb' }}>
                 <div className="container-fluid" >
@@ -89,11 +91,23 @@ const Navbar = () => {
 
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
-
+                          
                         <form class="d-flex me-auto w-100">
-                            <input class="form-control me-2" type="search" placeholder="Search items , categories" aria-label="Search" />
-
+                            <input onKeyDown={(e)=>{checkpress(e)}} onChange={event => { setSearchTerm(event.target.value) }} class="form-control me-2" type="search" placeholder="Search items , categories" aria-label="Search" />
+                             <NavLink to={`/searchTerm/${searchTerm}`} className="btn btn-success " style={{backgroundColor:'#181818'}}>
+                                   Search
+                             </NavLink>
                         </form>
+
+                        {/* <MContext.Consumer>
+                            {(context) => (
+                                <button onClick={() => {
+                                    console.log("hello")
+                                    context.setMessage(searchTerm)
+                                }}> Send</button>
+                            )}
+                        </MContext.Consumer> */}
+                   
 
                         <ul className="navbar-nav align-content-center ms-5">
 
@@ -118,7 +132,7 @@ const Navbar = () => {
                             </li>
                             <li className="nav-item">
 
-                                <a  href="/#" className={txt} >
+                                <a href="/#" className={txt} >
                                     Contact
                                 </a>
                             </li>
@@ -129,19 +143,19 @@ const Navbar = () => {
 
                                 <li>
 
-                                    
-                                        <ul className="navbar-nav">
-                                            <li className="nav-item dropdown">
-                                                <NavLink to={"/home"} className="nav-link dropdown-toggle"  id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        Hello,{userData}
-                                                </NavLink>
-                                                <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                                    <li><NavLink to={"/Profile"}className="dropdown-item">profile</NavLink></li>
-                                                    <li> <button className="dropdown-item " style={{color:'red'}}  onClick={(e) => logout(e)}>Logout</button></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    
+
+                                    <ul className="navbar-nav">
+                                        <li className="nav-item dropdown">
+                                            <NavLink to={"/home"} className="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Hello,{userData}
+                                            </NavLink>
+                                            <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                                <li><NavLink to={"/Profile"} className="dropdown-item">profile</NavLink></li>
+                                                <li> <button className="dropdown-item " style={{ color: 'red' }} onClick={(e) => logout(e)}>Logout</button></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
                                     {/* <button onClick={(e) => logout(e)}>Logout</button> */}
                                     {/* <NavLink to={"/home"}> {userData}</NavLink> */}
                                 </li> : <li className="nav-item">

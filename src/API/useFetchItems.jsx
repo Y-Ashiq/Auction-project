@@ -33,6 +33,31 @@ const useFetchItems = (url) => {
 
     }, [url]);
 
+    useEffect(() => {
+
+        setloading(true)
+
+        const AuctionItems = async () => {
+
+            await axios.get('http://159.223.172.150/api/item-service/items/')
+                .then(res => {
+
+                    console.log(res)
+
+
+
+                }).catch(err => {
+                    console.log(err)
+                })
+
+
+        }
+
+        AuctionItems();
+
+    }, []);
+
+
     return {dataa ,loading};
 }
  
