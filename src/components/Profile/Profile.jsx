@@ -1,4 +1,4 @@
-import react from "react";
+import react, { useReducer } from "react";
 import "./Profile.css"
 import axios from 'axios'
 import React, { useState, useEffect } from "react";
@@ -9,7 +9,7 @@ import Navbar from "../Navbar/Navbar";
 
 const Profile = () => {
     const [isclicked, setclicked] = useState(false)
-   
+
 
     const [user, setuserData] = useState(
         {
@@ -35,7 +35,7 @@ const Profile = () => {
 
 
     }
-    
+
     useEffect(() => {
         const token = JSON.parse(localStorage.getItem('token'))
         console.log(token);
@@ -67,15 +67,15 @@ const Profile = () => {
 
     }, []);
 
- 
+
 
 
     return (
-        
+
         <>
-        
-        
-        <Navbar />
+
+
+            <Navbar />
 
 
 
@@ -99,7 +99,7 @@ const Profile = () => {
                             <h3> Nahla Samy</h3>
                             <ul className="list-unstyled ">
                                 <li className='mb-2'>
-                                    <a className='text-decoration-none' href="#"><i class="fa-solid fa-bars-progress "></i>Personal Profile </a>
+                                    <a className='text-decoration-none' href="#"><i className="fa-solid fa-bars-progress "></i>Personal Profile </a>
                                 </li>
                                 <li className='mb-2'>
                                     <a className='text-decoration-none' href="#"><i class="fa-solid fa-bars-progress "></i>Personal Profile </a>
@@ -148,7 +148,7 @@ const Profile = () => {
 
 
 
-            <section className=" " style={{ marginTop: '5em' }}>
+            {/* <section className=" " style={{ marginTop: '5em' }}>
                 <div className="container  ">
                     <div className="row  gx-0 ">
                         <div className="col-sm-10 col-md-7 col-lg-4  ">
@@ -280,9 +280,104 @@ const Profile = () => {
 
                     </div>
                 </div>
-            </section >
+            </section > */}
 
-        
+
+
+
+
+
+            <section className="mt-5" >
+                <div className="container py-5">
+
+                    <div className="row">
+                        <div className="col-lg-4">
+                            <div className="card mb-4 pb-5">
+                                <div className="card-body text-center">
+                                    <img
+                                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                                        alt="avatar"
+                                        className="rounded-circle img-fluid"
+                                        style={{ width: 150 }}
+                                    />
+                                    <h5 className="my-3">{user.firstName} {user.lastName}</h5>
+                                    <p className="text-muted mb-1">{user.email}</p>
+                                    <p className="text-muted mb-4">Bay Area, San Francisco, CA</p>
+                                    <div className="d-flex justify-content-center mb-2">
+                                        <button type="button" className="btn btn-primary">
+                                            Follow
+                                        </button>
+                                        <button type="button" className="btn btn-outline-primary ms-1">
+                                            Message
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div className="col-lg-7">
+                            <div className="card mb-4">
+                                <div className="card-body ">
+                                    <div className="row">
+                                        <div className="col-sm-3">
+                                            <p className="mb-0">Full Name</p>
+                                        </div>
+                                        <div className="col-sm-9">
+                                            <p className="text-muted mb-0">{user.firstName} {user.lastName}</p>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div className="row">
+                                        <div className="col-sm-3">
+                                            <p className="mb-0">Email</p>
+                                        </div>
+                                        <div className="col-sm-9">
+                                            <p className="text-muted mb-0">{user.email}</p>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div className="row">
+                                        <div className="col-sm-3">
+                                            <p className="mb-0">Phone</p>
+                                        </div>
+                                        <div className="col-sm-9">
+                                            <p className="text-muted mb-0">{user.phoneNumber}</p>
+                                        </div>
+                                    </div>
+                                    <hr />
+
+
+                                    <div className="row">
+                                        <div className="col-sm-3">
+                                            <p className="mb-0">Address</p>
+                                        </div>
+                                        <div className="col-sm-9">
+                                            <p className="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row d-flex  ">
+                                 <p className="text-center fw-bold my-2">Winning bids</p>
+                                <div className="row d-flex justify-content-center align-content-center">
+                                    
+                                    <div className="col-md-6 ">
+                                        <MostBidding />
+                                    </div>
+                                    <div className="col-md-6">
+
+                                        <MostBidding />
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
 
 
         </>

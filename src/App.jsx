@@ -7,7 +7,7 @@ import Login from './components/Login/Login';
 import Bid from './components/Bid/Bid';
 import About from './components/About/About';
 import Items from './components/Items/Items'
-// import Footer from './components/Footer/Footer';
+import Footer from './components/Footer/Footer';
 import CreateAuction from './components/create/CreateAuction';
 import Profile from './components/Profile/Profile'
 import ProtectedRoutes from "./Hooks/ProtectedRoutes";
@@ -39,6 +39,8 @@ const App = () => {
           < Route path="*" component={NotFound} />
 
         </Switch>
+        <Footer/>
+      
 
 
 
