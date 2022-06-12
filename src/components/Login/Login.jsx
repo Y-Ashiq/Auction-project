@@ -78,7 +78,7 @@ const Login = () => {
                 <div className="col-lg-6 ">
                   <div className="p-md-5 mx-md-4">
 
-                    <div className="text-center pb-2">
+                    {/* <div className="text-center pb-2">
                       <p> SIGN IN:</p>
                       <button type="button" className="btn btn-link btn-floating mx-1">
                         <i className="fab fa-facebook-f"></i>
@@ -95,10 +95,10 @@ const Login = () => {
                       <button type="button" className="btn btn-link btn-floating mx-1">
                         <i className="fab fa-github"></i>
                       </button>
-                    </div>
+                    </div> */}
 
                     <form className="text-center px-3 " onSubmit={(e) => sendData(e)}>
-                      <p> or use your account </p>
+                      <p> use your account </p>
                       <label className="form-label " for="form2Example11">email</label>
                       <div className=" mb-4">
                         <input onChange={(e) => getFormData(e)} type="email" name='email'className=" form-control rounded-3 " />

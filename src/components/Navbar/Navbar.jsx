@@ -38,7 +38,7 @@ const Navbar = () => {
                 })
                 .catch((e) => {
 
-                    console.log(e.response.data);
+                    console.log(e.response);
 
                 })
         }
@@ -51,6 +51,7 @@ const Navbar = () => {
 
     }, [])
 
+
     function logout(e) {
         e.preventDefault();
 
@@ -59,6 +60,7 @@ const Navbar = () => {
 
 
     }
+    
 
     function checkpress(e){
         if(e.key === 'Enter'){
@@ -130,14 +132,7 @@ const Navbar = () => {
                                     About
                                 </NavLink>
                             </li>
-                            <li className="nav-item">
-
-                                <a href="/#" className={txt} >
-                                    Contact
-                                </a>
-                            </li>
-
-
+                     
                             {isLogged ?
 
 

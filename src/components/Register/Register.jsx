@@ -48,7 +48,7 @@ function Register(props) {
                                 <div className="col-lg-6 ">
                                     <div className="p-md-5 mx-md-4">
 
-                                        <div className="text-center pb-2">
+                                        {/* <div className="text-center pb-2">
                                             <p> SIGN UP WITH</p>
                                             <button type="button" className="btn btn-link btn-floating mx-1">
                                                 <i className="fab fa-facebook-f"></i>
@@ -65,10 +65,10 @@ function Register(props) {
                                             <button type="button" className="btn btn-link btn-floating mx-1">
                                                 <i className="fab fa-github"></i>
                                             </button>
-                                        </div>
+                                        </div> */}
 
                                         <form onSubmit={sendData} className="text-center px-2">
-                                            <p> or create your account </p>
+                                            <p> create your account </p>
                                             <div className="row">
                                                 <div className=" col-md-6 mb-4">
                                                     <input onChange={getUser} type="text" name="firstName" className="form-control rounded-3" placeholder="First name" />

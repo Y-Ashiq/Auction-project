@@ -22,6 +22,7 @@ const SearchTerm = () => {
           if(res.data.items.length === 0  ){
             setEmpty(true)
             console.log("ana fady walahy")
+            console.log(res)
           }else{
             setEmpty(false)
           }

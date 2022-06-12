@@ -141,6 +141,7 @@ const Bid = () => {
 
             <div className="container viewItemContainer d-flex flex flex-column justify-content-center my-5" >
                 <h4 className="text-center">Bid History</h4>
+                <div className="table-responsive-sm">
                 <table class="table" >
                     <thead>
                         <tr>
@@ -174,6 +175,8 @@ const Bid = () => {
 
                     </tbody>
                 </table>
+                </div>
+             
             </div>
 
 

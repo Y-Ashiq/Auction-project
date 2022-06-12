@@ -17,6 +17,7 @@ const Items = () => {
 
     const itemsPerPage = 10;
     const { pageCount, endOffset, itemOffset, handlePageClick } = PaginateItems(itemsPerPage, dataa);
+    window.scrollTo(0, 0);
 
 
   
