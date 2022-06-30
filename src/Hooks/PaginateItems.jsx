@@ -11,6 +11,7 @@ const PaginateItems = (itemsPerPage ,dataa) => {
     
     useEffect(() => {
         setPageCount(Math.ceil(dataa.length / itemsPerPage));
+        window.scrollTo({ behavior: 'smooth', top: '0px' });
     }, [itemOffset, itemsPerPage, dataa]);
 
     const handlePageClick = (event) => {

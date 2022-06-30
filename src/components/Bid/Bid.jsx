@@ -14,8 +14,9 @@ import { useHistory } from 'react-router-dom';
 
 
 const Bid = () => {
-    const url = 'https://fakestoreapi.com/products/';
-    const { dataa, loading } = useFetchBid(url);
+    
+    const url = 'http://159.223.172.150/api/auction-service/';
+    const { dataa, datab, loading } = useFetchBid(url);
 
 
     const [bid, setbids] = useState(3);
@@ -47,33 +48,26 @@ const Bid = () => {
 
                         <div className="col-xl d-flex justify-content-center">
 
-                            <img src={dataa.image} style={{ width: '70%', height: 'auto' }} alt="" />
+                            <img src={dataa.imageURL} style={{ width: '70%', height: 'auto' }} alt="" />
                             {/* <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
                                 <div className="carousel-inner">
-
                                     <div className="carousel-item active">
                                         <img className="d-block w-100 " src="imgs/car1.jpg" alt="" />
                                     </div>
-
                                     <div className="carousel-item">
                                         <img className="d-block w-100" src="imgs/car2.jpg" alt="" />
                                     </div>
-
                                     <div className="carousel-item">
                                         <img className="d-block w-100" src="imgs/car3.jpg" alt="" />
                                     </div>
-
                                     <div className="carousel-item">
                                         <img className="d-block w-100" src="imgs/car4.jpg" alt="" />
                                     </div>
                                 </div>
-
                                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                                 </button>
-
                                 <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
                                 </button>
-
                             </div> */}
 
 
@@ -82,7 +76,7 @@ const Bid = () => {
                         <div className="col-xl">
 
                             {/* <h1 className="" style={{ fontWeight: 'bold' }}> mercedes car 1979</h1> */}
-                            <h1 className="" style={{ fontWeight: 'bold' }}> {dataa.title}</h1>
+                            <h1 className="" style={{ fontWeight: 'bold' }}> {dataa.name}</h1>
                             <h4>description:</h4>
                             <p>{dataa.description}</p>
 
@@ -93,7 +87,7 @@ const Bid = () => {
                                 <div className="d-flex justify-content-center my-3">
 
                                     <i className="fa fa-gavel mx-2" style={{ fontSize: '35px', color: 'crimson' }}></i>
-                                    <p> current Bid : {dataa.price}</p>
+                                    <p> current Bid : {datab.currentPrice}</p>
                                     {/* <p >current Bid: $5000</p> */}
                                 </div>
 

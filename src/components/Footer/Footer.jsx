@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import './footer.css';
 const Footer = () => {
     return (  
@@ -84,7 +85,7 @@ const Footer = () => {
    
         <div className="text-center p-4" >
           © 2021 Copyright:
-          <a className="text-reset line" href=""> THE NINJAS</a>
+          <NavLink className="text-reset line" to={{}}> THE NINJAS</NavLink>
         </div>
      
       </footer>

@@ -15,7 +15,7 @@ const useFetchItems = (url) => {
 
             await axios.get(url)
                 .then(res => {
-                    setData(res.data)
+                    setData(res.data.auctionListings)
 
                     console.log(res)
                     setloading(false)
@@ -33,29 +33,29 @@ const useFetchItems = (url) => {
 
     }, [url]);
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        setloading(true)
+    //     setloading(true)
 
-        const AuctionItems = async () => {
+    //     const AuctionItems = async () => {
 
-            await axios.get('http://159.223.172.150/api/item-service/items/')
-                .then(res => {
+    //         await axios.get('http://159.223.172.150/api/item-service/items/')
+    //             .then(res => {
 
-                    console.log(res)
-
-
-
-                }).catch(err => {
-                    console.log(err)
-                })
+    //                 console.log(res)
 
 
-        }
 
-        AuctionItems();
+    //             }).catch(err => {
+    //                 console.log(err)
+    //             })
 
-    }, []);
+
+    //     }
+
+    //     AuctionItems();
+
+    // }, []);
 
 
     return {dataa ,loading};

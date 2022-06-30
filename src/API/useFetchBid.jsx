@@ -6,6 +6,7 @@ const useFetchBid = (url) => {
 
     const { id } = useParams();
     const [dataa, setData] = useState([]);
+    const [datab, setDatab] = useState([]);
     const [loading, setloading] = useState(false);
 
 
@@ -13,17 +14,18 @@ const useFetchBid = (url) => {
         setloading(true)
 
         const getBid =async ()=>{
-            await axios.get( url + `${id}`)
+            await axios.get( url+`${id}`)
             .then(res => {
-                setData(res.data)
+                setDatab(res.data.auctionListing);
+                setData(res.data.auctionListing.item);
 
-                console.log(res)
-                setloading(false)
+                console.log(res);
+                setloading(false);
 
 
 
             }).catch(err => {
-                console.log(err)
+                console.log(err.response.data.message);
             })
 
 
@@ -32,12 +34,12 @@ const useFetchBid = (url) => {
         getBid();
 
 
-    }, [id]);
+    }, [id , url]);
 
 
 
 
-    return {dataa , loading };
+    return {dataa , datab ,loading };
 }
  
 export default useFetchBid;

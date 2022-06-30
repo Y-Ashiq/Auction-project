@@ -14,7 +14,8 @@ const SearchTerm = () => {
 
   useEffect(() => {
     const getItemm = async () => {
-      await axios.get('http://159.223.172.150/api/item-service/items?itemName=' + `${keyWord}`)
+      await axios.get('http://159.223.172.150/api/item-service/items?itemName='+
+      `${keyWord}`)
         .then(res => {
           console.log(res)
           setItemResult(res.data.items)

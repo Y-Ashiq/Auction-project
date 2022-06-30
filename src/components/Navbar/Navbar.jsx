@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import './navbar.css'
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 
 import { useHistory } from 'react-router-dom';
 
@@ -60,7 +60,7 @@ const Navbar = () => {
 
 
     }
-    
+
 
     function checkpress(e){
         if(e.key === 'Enter'){

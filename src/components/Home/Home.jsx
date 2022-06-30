@@ -6,6 +6,7 @@ import './home.css'
 
 
 const Home = () => {
+
   return (
 
     <>
@@ -115,7 +116,7 @@ const Home = () => {
             </div>
             <div className="col-md">
               <div className="map-responsive" >
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3410.174055028024!2d30.00026915099201!3d31.271280366436656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5d00aa772c083%3A0xb24c29d6573f88d1!2z2LXYp9mE2Kkg2YXZitin2YXZiiDZhNmE2YXYstin2K_Yp9iq!5e0!3m2!1sen!2seg!4v1654730276881!5m2!1sen!2seg" style={{border:'0'}} allowfullscreen></iframe>
+                <iframe title="This is a unique title" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3410.174055028024!2d30.00026915099201!3d31.271280366436656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5d00aa772c083%3A0xb24c29d6573f88d1!2z2LXYp9mE2Kkg2YXZitin2YXZiiDZhNmE2YXYstin2K_Yp9iq!5e0!3m2!1sen!2seg!4v1654730276881!5m2!1sen!2seg" style={{border:'0'}} allowfullscreen></iframe>
               </div>
             </div>
           </div>

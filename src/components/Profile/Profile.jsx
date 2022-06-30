@@ -1,4 +1,4 @@
-import react, { useReducer } from "react";
+// import react, { useReducer } from "react";
 import "./Profile.css"
 import axios from 'axios'
 import React, { useState, useEffect } from "react";
@@ -8,7 +8,7 @@ import Navbar from "../Navbar/Navbar";
 
 
 const Profile = () => {
-    const [isclicked, setclicked] = useState(false)
+    // const [isclicked, setclicked] = useState(false)
 
 
     const [user, setuserData] = useState(
@@ -19,22 +19,22 @@ const Profile = () => {
             phoneNumber: '',
         }
     )
-    function clickk(e) {
-        e.preventDefault();
+    // function clickk(e) {
+    //     e.preventDefault();
 
-        setclicked(true);
-
-
-
-    }
-    function clickkPersonal(e) {
-        e.preventDefault();
-
-        setclicked(false);
+    //     setclicked(true);
 
 
 
-    }
+    // }
+    // function clickkPersonal(e) {
+    //     e.preventDefault();
+
+    //     setclicked(false);
+
+
+
+    // }
 
     useEffect(() => {
         const token = JSON.parse(localStorage.getItem('token'))
