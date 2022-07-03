@@ -1,64 +1,52 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios'
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const useFetchItems = (url) => {
+  const [dataa, setData] = useState([]);
+  const [loading, setloading] = useState(false);
 
-    const [dataa, setData] = useState([]);
-    const [loading, setloading] = useState(false);
+  useEffect(() => {
+    setloading(true);
 
-    useEffect(() => {
+    const AuctionItems = async () => {
+      await axios
+        .get(url)
+        .then((res) => {
+          setData(res.data.auctionListings);
 
-        setloading(true)
+          console.log(res);
+          setloading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
 
-        const AuctionItems = async () => {
+    AuctionItems();
+  }, [url]);
 
-            await axios.get(url)
-                .then(res => {
-                    setData(res.data.auctionListings)
+  // useEffect(() => {
 
-                    console.log(res)
-                    setloading(false)
+  //     setloading(true)
 
+  //     const AuctionItems = async () => {
 
+  //         await axios.get('http://159.223.172.150/api/item-service/items/')
+  //             .then(res => {
 
-                }).catch(err => {
-                    console.log(err)
-                })
+  //                 console.log(res)
 
+  //             }).catch(err => {
+  //                 console.log(err)
+  //             })
 
-        }
+  //     }
 
-        AuctionItems();
+  //     AuctionItems();
 
-    }, [url]);
+  // }, []);
 
-    // useEffect(() => {
+  return { dataa, loading };
+};
 
-    //     setloading(true)
-
-    //     const AuctionItems = async () => {
-
-    //         await axios.get('http://159.223.172.150/api/item-service/items/')
-    //             .then(res => {
-
-    //                 console.log(res)
-
-
-
-    //             }).catch(err => {
-    //                 console.log(err)
-    //             })
-
-
-    //     }
-
-    //     AuctionItems();
-
-    // }, []);
-
-
-    return {dataa ,loading};
-}
- 
 export default useFetchItems;

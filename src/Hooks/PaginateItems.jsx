@@ -1,29 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
+const PaginateItems = (itemsPerPage, dataa) => {
+  const [pageCount, setPageCount] = useState(0);
 
-const PaginateItems = (itemsPerPage ,dataa) => {
+  const [itemOffset, setItemOffset] = useState(0);
 
-    const [pageCount, setPageCount] = useState(0);
+  const endOffset = itemOffset + itemsPerPage;
 
-    const [itemOffset, setItemOffset] = useState(0);
+  useEffect(() => {
+    setPageCount(Math.ceil(dataa.length / itemsPerPage));
+    window.scrollTo({ behavior: "smooth", top: "0px" });
+  }, [itemOffset, itemsPerPage, dataa]);
 
-    const endOffset = itemOffset + itemsPerPage;
-    
-    useEffect(() => {
-        setPageCount(Math.ceil(dataa.length / itemsPerPage));
-        window.scrollTo({ behavior: 'smooth', top: '0px' });
-    }, [itemOffset, itemsPerPage, dataa]);
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % dataa.length;
 
-    const handlePageClick = (event) => {
-        const newOffset = (event.selected * itemsPerPage) % dataa.length;
+    setItemOffset(newOffset);
+  };
 
-        setItemOffset(newOffset);
-    };
+  return { pageCount, endOffset, itemOffset, handlePageClick };
+};
 
-
-
-
-    return {pageCount , endOffset ,itemOffset , handlePageClick};
-}
- 
-export default PaginateItems ;
+export default PaginateItems;

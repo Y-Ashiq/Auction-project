@@ -1,50 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
 
 * {
-
-    font-family: 'Poppins', sans-serif;
-
-
-
-
-
+  font-family: "Poppins", sans-serif;
 }
 
-
 .bolding {
-
-    font-weight: bold;
-    font-size: 18pt;
+  font-weight: bold;
+  font-size: 18pt;
 }
 
 .bolding2 {
-
-    font-weight: bold;
+  font-weight: bold;
 }
 
 label {
-
-    font-weight: bold;
-
+  font-weight: bold;
 }
 
 .form-colors {
-
-    background-color: #181818;
-    width: 170px;
- 
+  background-color: #181818;
+  width: 170px;
 }
 
 .form-side {
-
-    background-image: url('https://mocah.org/thumbs/5385252-portrait-painting-framed-portrait-spotlight-van-gogh-black-dark-light-art-artist-modernity-gogh-van-vincent-creative-commons-images.jpg');
-    border-radius: 15px;
-    height: auto;
+  background-image: url("https://mocah.org/thumbs/5385252-portrait-painting-framed-portrait-spotlight-van-gogh-black-dark-light-art-artist-modernity-gogh-van-vincent-creative-commons-images.jpg");
+  border-radius: 15px;
+  height: auto;
 }
 
-
-@media screen and (max-width :1200px) {
-    /* .most-bidding-section {
+@media screen and (max-width: 1200px) {
+  /* .most-bidding-section {
 
         display: grid;
         grid-template-columns: repeat(1, 1fr);
@@ -52,30 +37,22 @@ label {
 
     } */
 
-    .Bidding-Card {
+  .Bidding-Card {
+    height: 33em;
+  }
 
-        height: 33em;
-    }
+  .card-button {
+    font-size: 12pt;
+    width: 60%;
 
-    .card-button {
-        font-size: 12pt;
-        width: 60%;
+    margin-bottom: 1em;
+  }
 
-        margin-bottom: 1em;
-    }
-
-
-
-    .cat-section {
-
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        row-gap: 3em;
-
-
-    }
-
-
+  .cat-section {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 3em;
+  }
 }
 
 /* 

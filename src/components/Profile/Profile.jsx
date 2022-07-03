@@ -1,85 +1,60 @@
 // import react, { useReducer } from "react";
-import "./Profile.css"
-import axios from 'axios'
+import "./Profile.css";
+import axios from "axios";
 import React, { useState, useEffect } from "react";
-import MostBidding from '../most bidding card/Bidding-card';
+import MostBidding from "../most bidding card/Bidding-card";
 import Navbar from "../Navbar/Navbar";
 
-
-
 const Profile = () => {
-    // const [isclicked, setclicked] = useState(false)
+  // const [isclicked, setclicked] = useState(false)
 
+  const [user, setuserData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+  });
+  // function clickk(e) {
+  //     e.preventDefault();
 
-    const [user, setuserData] = useState(
-        {
-            firstName: '',
-            lastName: '',
-            email: '',
-            phoneNumber: '',
-        }
-    )
-    // function clickk(e) {
-    //     e.preventDefault();
+  //     setclicked(true);
 
-    //     setclicked(true);
+  // }
+  // function clickkPersonal(e) {
+  //     e.preventDefault();
 
+  //     setclicked(false);
 
+  // }
 
-    // }
-    // function clickkPersonal(e) {
-    //     e.preventDefault();
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    console.log(token);
 
-    //     setclicked(false);
+    const getUser = async () => {
+      await axios
+        .get("http://159.223.172.150/api/auth-service/users/current-user/", {
+          headers: {
+            "x-access-token": token,
+          },
+        })
+        .then((res) => {
+          // window.location.reload();
+          setuserData(res.data.user);
+          console.log(res);
+        })
+        .catch((e) => {
+          console.log(e.response.data);
+        });
+    };
+    getUser();
+  }, []);
 
+  return (
+    <>
+      <Navbar />
 
-
-    // }
-
-    useEffect(() => {
-        const token = JSON.parse(localStorage.getItem('token'))
-        console.log(token);
-
-        const getUser = async () => {
-            await axios.get('http://159.223.172.150/api/auth-service/users/current-user/', {
-
-                headers: {
-                    'x-access-token': token
-
-                }
-            })
-                .then(res => {
-
-                    // window.location.reload();
-                    setuserData(res.data.user);
-                    console.log(res);
-
-                })
-                .catch((e) => {
-
-                    console.log(e.response.data);
-
-                })
-        }
-        getUser();
-
-
-
-    }, []);
-
-
-
-
-    return (
-
-        <>
-
-
-            <Navbar />
-
-
-
-            {/* <div className="profile my-5">
+      {/* <div className="profile my-5">
             <div className="card shadow rounded-2 bg-danger">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea ab dignissimos nobis architecto cumque, libero tempora culpa est dolorem, quos velit fugiat exercitationem nihil odit sunt pariatur magni accusamus earum iure, ratione veritatis eligendi doloribus voluptates! Eum adipisci suscipit, rem obcaecati laborum sunt. Enim culpa excepturi illum ex provident? Reprehenderit!
             </div>
@@ -90,8 +65,7 @@ const Profile = () => {
         </>
     ) */}
 
-
-            {/* <div className="container my-5">
+      {/* <div className="container my-5">
                 <div className="row">
                     <div className="container card rounded-4 mx-5  bg-info"    >
                         <div className="text-center " >
@@ -142,13 +116,7 @@ const Profile = () => {
                 </div>
             </div> */}
 
-
-
-
-
-
-
-            {/* <section className=" " style={{ marginTop: '5em' }}>
+      {/* <section className=" " style={{ marginTop: '5em' }}>
                 <div className="container  ">
                     <div className="row  gx-0 ">
                         <div className="col-sm-10 col-md-7 col-lg-4  ">
@@ -282,106 +250,98 @@ const Profile = () => {
                 </div>
             </section > */}
 
-
-
-
-
-
-            <section className="mt-5" >
-                <div className="container py-5">
-
-                    <div className="row">
-                        <div className="col-lg-4">
-                            <div className="card mb-4 pb-5">
-                                <div className="card-body text-center">
-                                    <img
-                                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-                                        alt="avatar"
-                                        className="rounded-circle img-fluid"
-                                        style={{ width: 150 }}
-                                    />
-                                    <h5 className="my-3">{user.firstName} {user.lastName}</h5>
-                                    <p className="text-muted mb-1">{user.email}</p>
-                                    <p className="text-muted mb-4">Bay Area, San Francisco, CA</p>
-                                    <div className="d-flex justify-content-center mb-2">
-                                        <button type="button" className="btn btn-primary">
-                                            Follow
-                                        </button>
-                                        <button type="button" className="btn btn-outline-primary ms-1">
-                                            Message
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div className="col-lg-7">
-                            <div className="card mb-4">
-                                <div className="card-body ">
-                                    <div className="row">
-                                        <div className="col-sm-3">
-                                            <p className="mb-0">Full Name</p>
-                                        </div>
-                                        <div className="col-sm-9">
-                                            <p className="text-muted mb-0">{user.firstName} {user.lastName}</p>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div className="row">
-                                        <div className="col-sm-3">
-                                            <p className="mb-0">Email</p>
-                                        </div>
-                                        <div className="col-sm-9">
-                                            <p className="text-muted mb-0">{user.email}</p>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div className="row">
-                                        <div className="col-sm-3">
-                                            <p className="mb-0">Phone</p>
-                                        </div>
-                                        <div className="col-sm-9">
-                                            <p className="text-muted mb-0">{user.phoneNumber}</p>
-                                        </div>
-                                    </div>
-                                    <hr />
-
-
-                                    <div className="row">
-                                        <div className="col-sm-3">
-                                            <p className="mb-0">Address</p>
-                                        </div>
-                                        <div className="col-sm-9">
-                                            <p className="text-muted mb-0">Bay Area, San Francisco, CA</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row d-flex  ">
-                                 <p className="text-center fw-bold my-2">Winning bids</p>
-                                <div className="row d-flex justify-content-center align-content-center">
-                                    
-                                    <div className="col-md-6 ">
-                                        <MostBidding />
-                                    </div>
-                                    <div className="col-md-6">
-
-                                        <MostBidding />
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+      <section className="mt-5">
+        <div className="container py-5">
+          <div className="row">
+            <div className="col-lg-4">
+              <div className="card mb-4 pb-5">
+                <div className="card-body text-center">
+                  <img
+                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                    alt="avatar"
+                    className="rounded-circle img-fluid"
+                    style={{ width: 150 }}
+                  />
+                  <h5 className="my-3">
+                    {user.firstName} {user.lastName}
+                  </h5>
+                  <p className="text-muted mb-1">{user.email}</p>
+                  <p className="text-muted mb-4">Bay Area, San Francisco, CA</p>
+                  <div className="d-flex justify-content-center mb-2">
+                    <button type="button" className="btn btn-primary">
+                      Follow
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-outline-primary ms-1"
+                    >
+                      Message
+                    </button>
+                  </div>
                 </div>
-            </section>
+              </div>
+            </div>
+            <div className="col-lg-7">
+              <div className="card mb-4">
+                <div className="card-body ">
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <p className="mb-0">Full Name</p>
+                    </div>
+                    <div className="col-sm-9">
+                      <p className="text-muted mb-0">
+                        {user.firstName} {user.lastName}
+                      </p>
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <p className="mb-0">Email</p>
+                    </div>
+                    <div className="col-sm-9">
+                      <p className="text-muted mb-0">{user.email}</p>
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <p className="mb-0">Phone</p>
+                    </div>
+                    <div className="col-sm-9">
+                      <p className="text-muted mb-0">{user.phoneNumber}</p>
+                    </div>
+                  </div>
+                  <hr />
 
-
-
-
-        </>
-    )
-
-}
-export default Profile
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <p className="mb-0">Address</p>
+                    </div>
+                    <div className="col-sm-9">
+                      <p className="text-muted mb-0">
+                        Bay Area, San Francisco, CA
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="row d-flex  ">
+                <p className="text-center fw-bold my-2">Winning bids</p>
+                <div className="row d-flex justify-content-center align-content-center">
+                  <div className="col-md-6 ">
+                    <MostBidding />
+                  </div>
+                  <div className="col-md-6">
+                    <MostBidding />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+export default Profile;
