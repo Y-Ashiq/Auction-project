@@ -7,13 +7,18 @@ import useFetchBid from "../../API/useFetchBid";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import io from "socket.io-client";
 
 import Footer from "../Footer/Footer";
 import axios from "axios";
 
 const Bid = () => {
   const url = "http://159.223.172.150/api/auction-service/";
-  const { dataa, datab, loading, Cat, socket, Bids } = useFetchBid(url);
+  const { dataa, datab, loading, Cat } = useFetchBid(url);
+  const socket = io("http://159.223.99.196:3004");
+  const [bidloading, setbidloading] = useState(false);
+  const [Bids, setBids] = useState([]);
+
 
   const { id } = useParams();
 
@@ -37,6 +42,7 @@ const Bid = () => {
   const result = res - ms;
 
   const isexp = datab.isExpired;
+ 
 
   let timer = Date.now() + result;
   const sendData = () => {
@@ -44,12 +50,61 @@ const Bid = () => {
       history.push("/login");
     } else {
       socket.emit("bid", {
-        auctionID: datab._id,
+        auctionID: `${datab._id}`,
         bidderID: userId,
-        value: Price,
+        value: parseInt(Price) ,
       });
+      console.log('submited')
     }
   };
+  useEffect(() => {
+    setbidloading(true);
+    const getBidders = async () => {
+      await axios
+        .get(`http://159.223.172.150/api/bid-service/auctions/${id}/bids`)
+        .then((res) => {
+          console.log(res);
+
+          setBids(res.data.bids);
+
+    
+        })
+        .catch((err) => {
+          console.log(err.response.data.message);
+        });
+    };
+    getBidders();
+  }, // eslint-disable-next-line 
+  [bidloading]
+);
+
+  useEffect(()=>{
+    const getBids =()=>{
+
+      socket.on("bid-error", (res) => {
+        alert(res.message);
+        console.log(res);
+      });
+  
+      socket.on("bid-success", (res) => {
+        alert(res.message);
+        console.log(res);
+        setbidloading(false);
+      });
+      socket.on("bidder-success", (res) => {
+        alert(res.message);
+        console.log(res);
+        setbidloading(false);
+
+      });
+
+    }
+    getBids();
+
+
+
+// eslint-disable-next-line 
+  },[sendData])
 
   useEffect(() => {
     const Timer = () => {
@@ -68,6 +123,8 @@ const Bid = () => {
     };
     Timer(); // eslint-disable-next-line
   }, [timer]);
+
+ 
 
   return (
     <>
@@ -88,7 +145,7 @@ const Bid = () => {
         <div className="d-flex justify-content-center my-5 ">
           <div className=" viewItemContainer row my-5">
             <div className="col-xl d-flex justify-content-center">
-              <img src={dataa.imageURL} style={{ maxWidth:"100%" , maxHeight:"80%" }} alt="" />
+              <img src={dataa.imageURL} style={{ maxWidth:"80%" , maxHeight:"80%" }} alt="" />
             </div>
 
             <div className="col-xl">
@@ -124,6 +181,7 @@ const Bid = () => {
                 <p style={{ fontSize: "15pt" }}>
                   number of Bids : {Bids.length}
                 </p>
+              
               </div>
 
               <div className="d-flex justify-content-center flex-wrap my-5">

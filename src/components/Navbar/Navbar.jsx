@@ -28,7 +28,7 @@ const Navbar = () => {
         .then((res) => {
           // window.location.reload();
           setuserData(res.data.user.firstName);
-          console.log(res);
+          // console.log(res);
           localStorage.setItem("ID", JSON.stringify(res.data.user._id));
         })
         .catch((e) => {
@@ -58,7 +58,6 @@ const Navbar = () => {
     }
   }
 
-  console.log(searchTerm);
 
   return (
     <>

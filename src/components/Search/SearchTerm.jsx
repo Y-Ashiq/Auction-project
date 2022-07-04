@@ -68,7 +68,7 @@ const SearchTerm = () => {
 
                     <div>
                       <h4 style={{ fontSize: "10pt", fontWeight: "bold" }}>
-                        {items.item.name}
+                        {items.item.name.substring(0, 11)}
                       </h4>
                     </div>
 

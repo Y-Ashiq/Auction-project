@@ -8,7 +8,7 @@ const useFetchBid = (url) => {
   const [dataa, setData] = useState([]);
   const [datab, setDatab] = useState([]);
   const [loading, setloading] = useState(false);
-  const [Bids, setBids] = useState([]);
+
   const [Cat, setCat] = useState(" ");
 
   const socket = io("http://159.223.99.196:3004");
@@ -34,52 +34,32 @@ const useFetchBid = (url) => {
     getBid();
   }, [url, id]);
 
-  useEffect(
-    () => {
-      const getBidders = async () => {
-        await axios
-          .get(`http://159.223.172.150/api/bid-service/auctions/${id}/bids`)
-          .then((res) => {
-            console.log(res);
 
-            setBids(res.data.bids);
+  useEffect(()=>{
 
-            socket.on("connect", () => {
-              console.log("connected");
-            });
+    socket.on("connect", () => {
+      console.log("connected");
+    });
 
-            socket.on("connection-check", (res) => {
-              console.log(res);
-            });
+    socket.on("connection-check", (res) => {
+      console.log(res);
+    });
 
-            socket.on("join-auction-error", (res) => {
-              console.log(res);
-            });
+    socket.on("join-auction-error", (res) => {
+      console.log(res);
+    });
 
-            socket.on("join-auction-success", (res) => {
-              console.log(res);
-            });
+    socket.on("join-auction-success", (res) => {
+      console.log(res);
+    });
 
-            socket.on("bid-error", (res) => {
-              console.log(res);
-            });
 
-            socket.on("bid-success", (res) => {
-              console.log(res);
-            });
+    socket.emit("join-auction", { auctionID: `${id}` });
 
-            socket.emit("join-auction", { auctionID: `${id}` });
-          })
-          .catch((err) => {
-            console.log(err.response.data.message);
-          });
-      };
-      getBidders();
-    }, // eslint-disable-next-line
-    []
-  );
+// eslint-disable-next-line 
+  },[id])
 
-  return { dataa, datab, loading, Cat, socket, Bids };
+  return { dataa, datab, loading, Cat, socket };
 };
 
 export default useFetchBid;

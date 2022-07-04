@@ -102,7 +102,7 @@ const Items = () => {
         )}
       </div>
 
-      <div className="container d-flex align-items-center">
+      <div className="container d-flex justify-content-center">
         <ReactPaginate
           nextLabel="next >"
           onPageChange={handlePageClick}
