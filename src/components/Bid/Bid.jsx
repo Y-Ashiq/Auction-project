@@ -19,6 +19,7 @@ const Bid = () => {
   const [bidloading, setbidloading] = useState(false);
   const [Bids, setBids] = useState([]);
   const [Bidload, setBidload] = useState(true);
+  const [Mssg , setMssg] = useState("");
 
 
 
@@ -86,20 +87,24 @@ const Bid = () => {
     const getBids = () => {
 
       socket.on("bid-error", (res) => {
-        alert(res.message);
         console.log(res);
+        setMssg(res.message);
+        setbidloading(false);
+        setBidload(true);
       });
 
       socket.on("bid-success", (res) => {
-        alert(res.message);
         console.log(res);
+        setMssg(res.message);
+
         setbidloading(false);
         setBidload(true);
 
       });
       socket.on("bidder-success", (res) => {
-        alert(res.message);
         console.log(res);
+        setMssg(res.message);
+
         setbidloading(false);
         setBidload(true);
 
@@ -153,7 +158,7 @@ const Bid = () => {
         <div className="d-flex justify-content-center my-5 ">
           <div className=" viewItemContainer row my-5">
             <div className="col-xl d-flex justify-content-center">
-              <img src={dataa.imageURL} style={{ maxWidth: "80%", maxHeight: "80%" }} alt="" />
+              <img src={dataa.imageURL} style={{ maxWidth: "80%", maxHeight: "27em" }} alt="" />
             </div>
 
             <div className="col-xl">
@@ -238,6 +243,7 @@ const Bid = () => {
                   </>
                 )}
               </div>
+              <div className="alert alert-primary"style={{ }}> Notes: {Mssg}</div>
             </div>
           </div>
         </div>

@@ -269,7 +269,7 @@ const Profile = () => {
                   <p className="text-muted mb-4">Bay Area, San Francisco, CA</p>
                   <div className="d-flex justify-content-center mb-2">
                     <button type="button" className="btn btn-primary">
-                      Follow
+                      Call
                     </button>
                     <button
                       type="button"

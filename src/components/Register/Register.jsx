@@ -3,6 +3,8 @@ import axios from "axios";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
+import { useHistory } from 'react-router-dom';
+
 
 function Register(props) {
   const [error, setError] = useState("");
@@ -13,6 +15,8 @@ function Register(props) {
     phoneNumber: "",
     password: "",
   });
+  const history = useHistory();
+
 
   function getUser({ target }) {
     setUser({ ...user, [target.name]: target.value });
@@ -24,7 +28,9 @@ function Register(props) {
     await axios
       .post("http://159.223.172.150/api/auth-service/users/register ", user)
       .then((res) => {
-        props.history.replace("/login");
+        localStorage.setItem("token", JSON.stringify(res.data.token));
+
+        history.push('/home');
         console.log(res);
       })
       .catch((e) => {
