@@ -18,6 +18,8 @@ const Bid = () => {
   const socket = io("http://159.223.99.196:3004");
   const [bidloading, setbidloading] = useState(false);
   const [Bids, setBids] = useState([]);
+  const [Bidload, setBidload] = useState(true);
+
 
 
   const { id } = useParams();
@@ -42,19 +44,21 @@ const Bid = () => {
   const result = res - ms;
 
   const isexp = datab.isExpired;
- 
+
 
   let timer = Date.now() + result;
   const sendData = () => {
     if (!token) {
       history.push("/login");
     } else {
+      setBidload(false);
       socket.emit("bid", {
         auctionID: `${datab._id}`,
         bidderID: userId,
-        value: parseInt(Price) ,
+        value: parseInt(Price),
       });
       console.log('submited')
+      document.getElementById('price').value = "";
     }
   };
   useEffect(() => {
@@ -67,7 +71,7 @@ const Bid = () => {
 
           setBids(res.data.bids);
 
-    
+
         })
         .catch((err) => {
           console.log(err.response.data.message);
@@ -75,26 +79,30 @@ const Bid = () => {
     };
     getBidders();
   }, // eslint-disable-next-line 
-  [bidloading]
-);
+    [bidloading , id]
+  );
 
-  useEffect(()=>{
-    const getBids =()=>{
+  useEffect(() => {
+    const getBids = () => {
 
       socket.on("bid-error", (res) => {
         alert(res.message);
         console.log(res);
       });
-  
+
       socket.on("bid-success", (res) => {
         alert(res.message);
         console.log(res);
         setbidloading(false);
+        setBidload(true);
+
       });
       socket.on("bidder-success", (res) => {
         alert(res.message);
         console.log(res);
         setbidloading(false);
+        setBidload(true);
+
 
       });
 
@@ -103,8 +111,8 @@ const Bid = () => {
 
 
 
-// eslint-disable-next-line 
-  },[sendData])
+    // eslint-disable-next-line 
+  }, [sendData])
 
   useEffect(() => {
     const Timer = () => {
@@ -124,7 +132,7 @@ const Bid = () => {
     Timer(); // eslint-disable-next-line
   }, [timer]);
 
- 
+
 
   return (
     <>
@@ -145,7 +153,7 @@ const Bid = () => {
         <div className="d-flex justify-content-center my-5 ">
           <div className=" viewItemContainer row my-5">
             <div className="col-xl d-flex justify-content-center">
-              <img src={dataa.imageURL} style={{ maxWidth:"80%" , maxHeight:"80%" }} alt="" />
+              <img src={dataa.imageURL} style={{ maxWidth: "80%", maxHeight: "80%" }} alt="" />
             </div>
 
             <div className="col-xl">
@@ -181,7 +189,7 @@ const Bid = () => {
                 <p style={{ fontSize: "15pt" }}>
                   number of Bids : {Bids.length}
                 </p>
-              
+
               </div>
 
               <div className="d-flex justify-content-center flex-wrap my-5">
@@ -204,20 +212,29 @@ const Bid = () => {
                     </button>
                   </>
                 ) : (
-                  <>
-                    <input
-                      onChange={(e) => setPrice(e.target.value)}
-                      className=" form-control rounded-3 my-3 mx-3 w-50"
-                      type="number"
-                      name="Price"
-                      id=""
-                    />
+                  <> {Bidload ? (<>  <input
+                    onChange={(e) => setPrice(e.target.value)}
+                    className=" form-control rounded-3 my-3 mx-3 w-50"
+                    type="number"
+                    name="Price"
+                    id="price"
+                  />
                     <button
                       onClick={sendData}
                       className=" btn text-white rounded-3 my-3 form-colors"
                     >
                       submit a bid
-                    </button>
+                    </button></>) : (<><div className="d-flex justify-content-center my-5">
+                      <div class="d-flex align-items-center my-5">
+                        <strong className="mx-0">Transfer the Bid...</strong>
+                        <div
+                          class="spinner-border ms-auto"
+                          role="status"
+                          aria-hidden="true"
+                        ></div>
+                      </div>
+                    </div></>)}
+
                   </>
                 )}
               </div>
