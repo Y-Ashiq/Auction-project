@@ -19,53 +19,48 @@ const Footer = () => {
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
               <p>
-                <a href="#!" className="text-reset">
+                <NavLink to={'/home'} className="text-reset">
                   Home
-                </a>
+                </NavLink>
               </p>
               <p>
-                <a href="#!" className="text-reset">
+                <NavLink to={'/Items'} className="text-reset">
                   Auction
-                </a>
+                </NavLink>
               </p>
               <p>
-                <a href="#!" className="text-reset">
+                <NavLink to={'/About'} className="text-reset">
                   About
-                </a>
+                </NavLink>
               </p>
               <p>
-                <a href="#!" className="text-reset">
+                <NavLink to={'/login'} className="text-reset">
                   Login
-                </a>
+                </NavLink>
               </p>
               <p>
-                <a href="#!" className="text-reset">
+                <NavLink to={'/register'} className="text-reset">
                   Signup
-                </a>
+                </NavLink>
               </p>
             </div>
 
             <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Categories</h6>
               <p>
-                <a href="#!" className="text-reset">
-                Cothe
-                </a>
+                <NavLink to={`/searchTerm/$clothe`} className="text-reset">
+                Clothes
+                </NavLink>
               </p>
               <p>
-                <a href="#!" className="text-reset">
+                <NavLink to={`/searchTerm/electronics`} className="text-reset">
                   Electronics
-                </a>
+                </NavLink>
               </p>
               <p>
-                <a href="#!" className="text-reset">
+                <NavLink to={`/searchTerm/jewelery`} className="text-reset">
                 Jewelry
-                </a>
-              </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  Help
-                </a>
+                </NavLink>
               </p>
             </div>
 

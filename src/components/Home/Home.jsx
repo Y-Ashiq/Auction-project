@@ -31,10 +31,10 @@ const Home = () => {
           <h2 style={{ textAlign: "center", marginBottom: "2em" }}>
             Most Bidding
           </h2>
-          <div className="most-bidding-section">
+          <div >
+          {/* <div className="most-bidding-section"> */}
             <MostBidding />
-            <MostBidding />
-            <MostBidding />
+          
           </div>
         </div>
       </section>

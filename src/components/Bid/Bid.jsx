@@ -88,7 +88,7 @@ const Bid = () => {
         <div className="d-flex justify-content-center my-5 ">
           <div className=" viewItemContainer row my-5">
             <div className="col-xl d-flex justify-content-center">
-              <img src={dataa.imageURL} style={{ height: "70%" }} alt="" />
+              <img src={dataa.imageURL} style={{ maxWidth:"100%" , maxHeight:"80%" }} alt="" />
             </div>
 
             <div className="col-xl">
