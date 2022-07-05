@@ -332,9 +332,6 @@ const Profile = () => {
                   <div className="col-md-6 ">
                     <MostBidding />
                   </div>
-                  <div className="col-md-6">
-                    <MostBidding />
-                  </div>
                 </div>
               </div>
             </div>

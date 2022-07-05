@@ -13,15 +13,13 @@ import Footer from "../Footer/Footer";
 import axios from "axios";
 
 const Bid = () => {
-  const url = "http://159.223.172.150/api/auction-service/";
-  const { dataa, datab, loading, Cat } = useFetchBid(url);
-  const socket = io("http://159.223.99.196:3004");
-  const [bidloading, setbidloading] = useState(false);
-  const [Bids, setBids] = useState([]);
   const [Bidload, setBidload] = useState(true);
-  const [Mssg , setMssg] = useState("");
-
-
+  const [bidloading, setbidloading] = useState(false);
+  const url = "http://159.223.172.150/api/auction-service/";
+  const { dataa, datab, loading, Cat } = useFetchBid(url ,Bidload ,bidloading);
+  const socket = io("http://159.223.99.196:3004");
+  const [Bids, setBids] = useState([]);
+  const [Mssg, setMssg] = useState("");
 
   const { id } = useParams();
 
@@ -46,7 +44,6 @@ const Bid = () => {
 
   const isexp = datab.isExpired;
 
-
   let timer = Date.now() + result;
   const sendData = () => {
     if (!token) {
@@ -58,34 +55,32 @@ const Bid = () => {
         bidderID: userId,
         value: parseInt(Price),
       });
-      console.log('submited')
-      document.getElementById('price').value = "";
+      console.log("submited");
+      document.getElementById("price").value = "";
     }
   };
-  useEffect(() => {
-    setbidloading(true);
-    const getBidders = async () => {
-      await axios
-        .get(`http://159.223.172.150/api/bid-service/auctions/${id}/bids`)
-        .then((res) => {
-          console.log(res);
+  useEffect(
+    () => {
+      setbidloading(true);
+      const getBidders = async () => {
+        await axios
+          .get(`http://159.223.172.150/api/bid-service/auctions/${id}/bids`)
+          .then((res) => {
+            console.log(res);
 
-          setBids(res.data.bids);
-
-
-        })
-        .catch((err) => {
-          console.log(err.response.data.message);
-        });
-    };
-    getBidders();
-  }, // eslint-disable-next-line 
-    [bidloading , id]
+            setBids(res.data.bids);
+          })
+          .catch((err) => {
+            console.log(err.response.data.message);
+          });
+      };
+      getBidders();
+    }, // eslint-disable-next-line
+    [bidloading, id]
   );
 
   useEffect(() => {
     const getBids = () => {
-
       socket.on("bid-error", (res) => {
         console.log(res);
         setMssg(res.message);
@@ -96,10 +91,8 @@ const Bid = () => {
       socket.on("bid-success", (res) => {
         console.log(res);
         setMssg(res.message);
-
         setbidloading(false);
         setBidload(true);
-
       });
       socket.on("bidder-success", (res) => {
         console.log(res);
@@ -107,17 +100,12 @@ const Bid = () => {
 
         setbidloading(false);
         setBidload(true);
-
-
       });
-
-    }
+    };
     getBids();
 
-
-
-    // eslint-disable-next-line 
-  }, [sendData])
+    // eslint-disable-next-line
+  }, [sendData]);
 
   useEffect(() => {
     const Timer = () => {
@@ -136,8 +124,6 @@ const Bid = () => {
     };
     Timer(); // eslint-disable-next-line
   }, [timer]);
-
-
 
   return (
     <>
@@ -158,7 +144,11 @@ const Bid = () => {
         <div className="d-flex justify-content-center my-5 ">
           <div className=" viewItemContainer row my-5">
             <div className="col-xl d-flex justify-content-center">
-              <img src={dataa.imageURL} style={{ maxWidth: "80%", maxHeight: "27em" }} alt="" />
+              <img
+                src={dataa.imageURL}
+                style={{ maxWidth: "100%", maxHeight: "30em" }}
+                alt=""
+              />
             </div>
 
             <div className="col-xl">
@@ -194,7 +184,6 @@ const Bid = () => {
                 <p style={{ fontSize: "15pt" }}>
                   number of Bids : {Bids.length}
                 </p>
-
               </div>
 
               <div className="d-flex justify-content-center flex-wrap my-5">
@@ -217,33 +206,48 @@ const Bid = () => {
                     </button>
                   </>
                 ) : (
-                  <> {Bidload ? (<>  <input
-                    onChange={(e) => setPrice(e.target.value)}
-                    className=" form-control rounded-3 my-3 mx-3 w-50"
-                    type="number"
-                    name="Price"
-                    id="price"
-                  />
-                    <button
-                      onClick={sendData}
-                      className=" btn text-white rounded-3 my-3 form-colors"
-                    >
-                      submit a bid
-                    </button></>) : (<><div className="d-flex justify-content-center my-5">
-                      <div class="d-flex align-items-center my-5">
-                        <strong className="mx-0">Transfer the Bid...</strong>
-                        <div
-                          class="spinner-border ms-auto"
-                          role="status"
-                          aria-hidden="true"
-                        ></div>
-                      </div>
-                    </div></>)}
-
+                  <>
+                    {" "}
+                    {Bidload ? (
+                      <>
+                        {" "}
+                        <input
+                          onChange={(e) => setPrice(e.target.value)}
+                          className=" form-control rounded-3 my-3 mx-3 w-50"
+                          type="number"
+                          name="Price"
+                          id="price"
+                        />
+                        <button
+                          onClick={sendData}
+                          className=" btn text-white rounded-3 my-3 form-colors"
+                        >
+                          submit a bid
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <div className="d-flex justify-content-center my-5">
+                          <div class="d-flex align-items-center my-5">
+                            <strong className="mx-0">
+                              Transfer the Bid...
+                            </strong>
+                            <div
+                              class="spinner-border ms-auto"
+                              role="status"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                        </div>
+                      </>
+                    )}
                   </>
                 )}
               </div>
-              <div className="alert alert-primary"style={{ }}> Notes: {Mssg}</div>
+              <div className="alert alert-primary" style={{}}>
+                {" "}
+                Notes: {Mssg}
+              </div>
             </div>
           </div>
         </div>

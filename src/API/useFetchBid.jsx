@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import io from "socket.io-client";
 import axios from "axios";
 
-const useFetchBid = (url) => {
+const useFetchBid = (url ,Bidload,bidloading) => {
   const { id } = useParams();
   const [dataa, setData] = useState([]);
   const [datab, setDatab] = useState([]);
@@ -32,7 +32,7 @@ const useFetchBid = (url) => {
         });
     };
     getBid();
-  }, [url, id]);
+  }, [url, id,Bidload,bidloading ]);
 
 
   useEffect(()=>{
